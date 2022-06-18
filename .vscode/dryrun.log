@@ -1,0 +1,8 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory `/Users/hoomen/projects/fractol'
+gcc -Wall -Wextra -Werror -Imlx -c src/put_circle.c -o src/put_circle.o
+ 
+gcc src/window.o src/put_circle.o -lm -Lmlx -lmlx -framework OpenGL -framework AppKit -o fractol
+echo "fractol is compiled"
+make: Leaving directory `/Users/hoomen/projects/fractol'
+ 
