@@ -6,7 +6,7 @@
 #    By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/22 15:22:54 by hoomen            #+#    #+#              #
-#    Updated: 2022/06/20 13:00:51 by hoomen           ###   ########.fr        #
+#    Updated: 2022/06/20 12:00:00 by hoomen           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,14 @@ FLAGS 	=	-Wall -Wextra -Werror
 NAME			= fractol
 BONUSNAME		=	
 # source files
-MAIN			= fractol
-UTILS			= window
+MAIN			= window
+UTILS			= put_circle
 LIBFT			=
 FT_PRINTF		=
 GNL				=
 # add prefix and suffix to filenames
-MAINSRC			=	$(addprefix src/, $(addsuffix .c, $(MAIN)))
-UTILSSRC		=	$(addprefix src/, $(addsuffix .c, $(UTILS)))
+MAINSRC			=	$(addsuffix .c, $(MAIN))
+UTILSSRC		=	$(addsuffix .c, $(UTILS))
 BONUSSRC		=	
 LIBFTSRC		=	$(addprefix libft/ft_,$(addsuffix .c, $(LIBFT)))
 FT_PRINTFSRC	=	$(addprefix ft_printf/ft_, $(addsuffix .c, $(FT_PRINTF)))

@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:24:31 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/20 13:01:13 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/20 12:53:24 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ typedef struct s_fr
 {
 	void	*mlx;
 	void	*win;
-	int		win_width;
 	int		win_height;
+	int		win_width;
 	void	*img;
 	void	*img_addr;
 	int		bits_per_pixel;
@@ -37,10 +37,5 @@ typedef struct s_fr
 	int		depth_min;
 	int		depth_max;
 }			t_fr;
-
-# define RE 0
-# define IM 1
-
-void	init(t_fr *fr);
 
 #endif

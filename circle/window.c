@@ -6,45 +6,47 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:00:26 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/20 12:59:44 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/18 19:16:55 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	init_mlx(t_fr *fr)
+void	init_mlx(t_win *win)
 {
-	fr->mlx = mlx_init();
-	if (fr->mlx == NULL)
+	win->mlx = mlx_init();
+	if (win->mlx == NULL)
 	{
 		exit(EXIT_FAILURE);
 	}
 }
 
-void	init_window(t_fr *fr)
+void	init_window(t_win *win)
 {
-	fr->win = mlx_new_window(fr->mlx, fr->win_width, fr->win_height, "fractol");
-	if (fr->win == NULL)
+	win->win = mlx_new_window(win->mlx, 1920, 1080, "fractol");
+	if (win->mlx == NULL)
 	{
-		free(fr->mlx);
+		free(win->mlx);
 		exit(EXIT_FAILURE);
 	}
 }
 
-void	init_img(t_fr *fr)
+void	init_img(t_win *win, t_img *img)
 {
-	fr->img = mlx_new_image(fr->mlx, fr->win_width, fr->win_height);
-	fr->img_addr = mlx_get_data_addr(fr->img, &(fr->bits_per_pixel), &(fr->line_length), &(fr->endian));
+	img->img = mlx_new_image(win->mlx, 1920, 1080);
+	img->img_addr = mlx_get_data_addr(img->img, &(img->bits_per_pixel), &(img->line_length), &(img->endian));
 }
 
-
-void	init(t_fr *fr)
+int	main(void)
 {
-	fr->win_width = 500;
-	fr->win_height = 500;
-	fr->depth_min = 0;
-	fr->depth_max = 600;
-	init_mlx(fr);
-	init_window(fr);
-	init_img(fr);
+	t_win		win;
+	t_img		img;
+	t_circle	circle;
+
+	init_mlx(&win);
+	init_window(&win);
+	init_img(&win, &img);
+	make_circles(&img, &circle);
+	mlx_put_image_to_window(win.mlx, win.win, img.img, 0, 0);
+	mlx_loop(win.mlx);
 }

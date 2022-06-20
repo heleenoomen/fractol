@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 18:03:09 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/18 19:16:05 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/19 10:50:04 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void    make_circles(t_img *img, t_circle *circle)
     put_circle(img, circle);
     circle_pos_rad(circle, 1200, 500, 80);
     circle_appearance(circle, 3, 80, 0x00EEAA00);
-    circle_fill(circle, 0);
+    circle_fill(circle, 1);
     put_circle(img, circle);
     circle_pos_rad(circle, 1600, 100, 90);
     circle_appearance(circle, 2, 90, 0x00BB00CC);
