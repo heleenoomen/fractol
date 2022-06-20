@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:24:31 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/20 15:15:43 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/20 13:31:25 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,6 @@ typedef struct s_fr
 	int		win_height;
 	void	*img;
 	void	*img_addr;
-	double	zoom;
-	double	null_coord;
-	double	step;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
@@ -46,7 +43,5 @@ typedef struct s_fr
 
 void	init(t_fr *fr);
 void	make_image(t_fr *fr);
-void	my_mlx_pixel_put(t_fr *fr, int x, int y, int color);
-void	my_mlx_init(t_fr *fr);
 
 #endif

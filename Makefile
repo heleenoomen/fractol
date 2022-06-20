@@ -6,7 +6,7 @@
 #    By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/22 15:22:54 by hoomen            #+#    #+#              #
-#    Updated: 2022/06/20 13:00:51 by hoomen           ###   ########.fr        #
+#    Updated: 2022/06/20 13:45:09 by hoomen           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME			= fractol
 BONUSNAME		=	
 # source files
 MAIN			= fractol
-UTILS			= window
+UTILS			= init color
 LIBFT			=
 FT_PRINTF		=
 GNL				=

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   window.c                                           :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:00:26 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/20 12:59:44 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/20 15:03:36 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	init_mlx(t_fr *fr)
+void	my_mlx_init(t_fr *fr)
 {
 	fr->mlx = mlx_init();
 	if (fr->mlx == NULL)
@@ -44,7 +44,7 @@ void	init(t_fr *fr)
 	fr->win_height = 500;
 	fr->depth_min = 0;
 	fr->depth_max = 600;
-	init_mlx(fr);
+	my_mlx_init(fr);
 	init_window(fr);
 	init_img(fr);
 }

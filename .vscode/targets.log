@@ -8,12 +8,12 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Mon Jun 20 13:01:00 2022
+# Make data base, printed on Mon Jun 20 14:57:02 2022
 
 # Variables
 
 # makefile (from `Makefile', line 21)
-UTILS = window
+UTILS = init color
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
@@ -47,13 +47,15 @@ VSCODE_VERBOSE_LOGGING = true
 # makefile (from `Makefile', line 29)
 LIBFTSRC = $(addprefix libft/ft_,$(addsuffix .c, $(LIBFT)))
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000ccdm00333d/T/vscode-ipc-5f529981-7b05-4415-8ce6-ce0831d02d33.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000ccdm00333d/T/vscode-ipc-dc16637b-7fc4-414c-80bc-ec1c5aa60d0d.sock
 # environment
 VSCODE_CWD = /
 # environment
 PATH = /Users/hoomen/goinfre/.brew/bin:/Users/hoomen/goinfre/.brew/bin:/Users/hoomen/.brew/bin:/Users/hoomen/goinfre/.brew/bin:/Users/hoomen/.brew/bin:/Users/hoomen/.brew/bin:/Users/hoomen/goinfre/.brew/bin:/Users/hoomen/goinfre/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Apple/usr/bin
 # makefile (from `Makefile', line 26)
 MAINSRC = $(addprefix src/, $(addsuffix .c, $(MAIN)))
+# environment
+LaunchInstanceID = 82F8824E-F5CC-4B19-931A-BB435C4F6CC0
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -63,7 +65,7 @@ GNLOBJS = $(GNLSRC:.c=.o)
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.xHZB72nlHH/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.LTO7G2B6OK/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -126,7 +128,6 @@ TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n000ccdm00333d/T/
 *F = $(notdir $*)
 # environment
 VSCODE_IPC_HOOK = /Users/hoomen/Library/Application Support/Code/1.67.2-main.sock
- 
 # makefile
 MAKEFLAGS = Rrqp
 # environment
@@ -138,7 +139,7 @@ MAIN = fractol
 # makefile (from `Makefile', line 18)
 BONUSNAME = 
 # environment
-XPC_SERVICE_NAME = com.microsoft.VSCode.2972
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -147,6 +148,8 @@ XPC_SERVICE_NAME = com.microsoft.VSCode.2972
 BONUSSRC = 
 # environment
 __CF_USER_TEXT_ENCODING = 0x18C6D:0x0:0x0
+# environment
+COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
 # makefile (from `Makefile', line 24)
@@ -157,6 +160,8 @@ GNL =
 LIBFTOBJS = $(LIBFTSRC:.c=.o)
 # environment
 LC_ALL = C
+# environment
+SECURITYSESSIONID = 186a7
 # automatic
 ^F = $(notdir $^)
 # makefile (from `Makefile', line 35)
@@ -174,9 +179,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 81002
+VSCODE_PID = 1767
 # variable set hash-table stats:
-# Load=81/1024=8%, Rehash=0, Collisions=11/126=9%
+# Load=84/1024=8%, Rehash=0, Collisions=11/129=9%
 
 # Pattern-specific Variable Values
 
@@ -184,10 +189,10 @@ VSCODE_PID = 81002
 
 # Directories
 
-# . (device 16777225, inode 1303485): 11 files, no impossibilities.
-# src (device 16777225, inode 1304457): 4 files, no impossibilities so far.
+# . (device 16777225, inode 1303485): 13 files, no impossibilities.
+# src (device 16777225, inode 1304457): 8 files, no impossibilities so far.
 
-# 15 files, no impossibilities in 2 directories.
+# 21 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -200,9 +205,9 @@ VSCODE_PID = 81002
 
 # Files
 
-fractol: src/fractol.o src/window.o
+fractol: src/fractol.o src/init.o src/color.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-06-19 15:59:49
+#  Last modified 2022-06-20 13:45:10
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -227,6 +232,34 @@ all: fractol
 #  Modification time never checked.
 #  File has not been updated.
 
+src/color.o: src/color.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/color'
+#  Last modified 2022-06-20 13:45:10
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := src/color.o
+# automatic
+# % := 
+# automatic
+# * := src/color
+# automatic
+# + := src/color.c
+# automatic
+# | := 
+# automatic
+# < := src/color.c
+# automatic
+# ^ := src/color.c
+# automatic
+# ? := src/color.c
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/13=8%
+#  commands to execute (from `Makefile', line 49):
+	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
+	
+
 script:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -244,7 +277,7 @@ script:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-20 13:00:51
+#  Last modified 2022-06-20 13:45:09
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -253,36 +286,14 @@ Makefile:
 src/fractol.o: src/fractol.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `src/fractol'
-#  File does not exist.
+#  Last modified 2022-06-20 13:43:00
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := src/fractol.o
-# automatic
-# % := 
-# automatic
-# * := src/fractol
-# automatic
-# + := src/fractol.c
-# automatic
-# | := 
-# automatic
-# < := src/fractol.c
-# automatic
-# ^ := src/fractol.c
-# automatic
-# ? := src/fractol.c
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/13=8%
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 #  commands to execute (from `Makefile', line 49):
 	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
 	
-
-# Not a target:
-src/window.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
 
 bonus:
 #  Phony target (prerequisite of .PHONY).
@@ -296,7 +307,20 @@ fclean: clean
 #  File does not exist.
 #  File has not been updated.
 #  commands to execute (from `Makefile', line 61):
+ 
 	rm -f $(NAME) $(BONUSNAME)
+	
+
+src/init.o: src/init.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/init'
+#  Last modified 2022-06-20 13:45:10
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 49):
+	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
 	
 
 # Not a target:
@@ -306,9 +330,18 @@ fclean: clean
 #  File has not been updated.
 
 # Not a target:
+src/color.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-20 13:45:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
 src/fractol.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-20 13:00:32
+#  Last modified 2022-06-20 13:25:45
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -330,8 +363,17 @@ clean:
 	@rm -f */*.o
 	
 
+# Not a target:
+src/init.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-20 13:31:51
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
 # files hash-table stats:
-# Load=14/1024=1%, Rehash=0, Collisions=0/41=0%
+# Load=17/1024=2%, Rehash=0, Collisions=0/51=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -343,6 +385,6 @@ clean:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon Jun 20 13:01:00 2022
+# Finished Make data base on Mon Jun 20 14:57:03 2022
 
  
