@@ -6,48 +6,11 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 15:50:05 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/20 13:17:31 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/20 13:22:47 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-# define RE 0
-# define IM 1
-
-// double    *calc_z(double z[2], double c[2], int i, int depth)
-// {
-// 	double  z_re_new;
-// 	double  z_im_new;
-
-// 	if (i == depth)
-// 		return (z);
-// 	z_re_new = (z[RE] * z[RE]) - (z[IM] * z[IM]) + c[RE];
-// 	z_im_new = (2 * z[RE] * z[IM]) + c[IM];
-// 	z[RE] = z_re_new;
-// 	z[IM] = z_im_new;
-// 	i++;
-// 	return (calc_z(z, c, i, depth));
-
-// }
-
-// int	calc_color(double z[2], double c[2], int i, int depth)
-// {
-// 	double  z_re_new;
-// 	double  z_im_new;
-	
-// 	if (((z[RE] * z[RE]) + (z[IM] * z[IM])) > 4)
-// 		return (i);
-// 	if (i == depth)
-// 		return (i);
-// 	z_re_new = (z[RE] * z[RE]) - (z[IM] * z[IM]) + c[RE];
-// 	z_im_new = (2 * z[RE] * z[IM]) + c[IM];
-// 	z[RE] = z_re_new;
-// 	z[IM] = z_im_new;
-// 	i++;
-// 	return (calc_color(z, c, i, depth));
-// }
-
 
 int	calc_max_iterations(t_fr *fr, double c_re, double c_im)
 {

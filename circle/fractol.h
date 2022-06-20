@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:24:31 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/20 12:53:24 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/20 13:23:18 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ typedef struct s_fr
 	int		depth_min;
 	int		depth_max;
 }			t_fr;
+
+void    make_circles(t_img *img, t_circle *circle);
 
 #endif
