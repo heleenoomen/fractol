@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:24:31 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/22 20:05:51 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/22 21:40:12 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,13 @@ typedef struct s_fr
 	void	*img;
 	void	*img_addr;
 	double	zoom;
-	//double	zoom_modus;
+	double	zoom_modus;
 	double	re_min;
 	double	re_max;
 	double	im_min;
 	double	im_max;
 	double	scope;
+	char	coloring_algorithm;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
@@ -48,9 +49,9 @@ typedef struct s_fr
 
 # define RE 0
 # define IM 1
-//# define ZOOM_INIT -1
-//# define ZOOM_IN 0
-/////# define ZOOM_OUT 1
+# define ZOOM_INIT -1
+# define ZOOM_IN 0
+# define ZOOM_OUT 1
 
 void	init(t_fr *fr);
 void	make_image(t_fr *fr);
@@ -62,5 +63,7 @@ int		red_button(t_fr *fr);
 int		zoom(int x, int y, t_fr *fr, double factor);
 int		add_depth(t_fr *fr);
 int		reset_my_fractal(t_fr *fr);
+void	remove_depth(t_fr *fr);
+void	print_coords(int x, int y, t_fr *fr);
 
 #endif
