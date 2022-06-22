@@ -8,12 +8,12 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Wed Jun 22 15:00:56 2022
+# Make data base, printed on Wed Jun 22 17:58:40 2022
 
 # Variables
 
 # makefile (from `Makefile', line 21)
-UTILS = init color events
+UTILS = init color events zoom
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
@@ -47,7 +47,7 @@ VSCODE_VERBOSE_LOGGING = true
 # makefile (from `Makefile', line 29)
 LIBFTSRC = $(addprefix libft/ft_,$(addsuffix .c, $(LIBFT)))
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000ccdm00333d/T/vscode-ipc-1ed95212-8c40-44dc-8586-1629ef49b89b.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000ccdm00333d/T/vscode-ipc-4a0152fa-101b-4601-ae91-4af2fb9240a7.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -190,9 +190,9 @@ VSCODE_PID = 2074
 # Directories
 
 # . (device 16777225, inode 1303485): 13 files, no impossibilities.
-# src (device 16777225, inode 1304457): 10 files, no impossibilities so far.
+# src (device 16777225, inode 1304457): 12 files, no impossibilities so far.
 
-# 23 files, no impossibilities in 2 directories.
+# 25 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -205,9 +205,9 @@ VSCODE_PID = 2074
 
 # Files
 
-fractol: src/fractol.o src/init.o src/color.o src/events.o
+fractol: src/fractol.o src/init.o src/color.o src/events.o src/zoom.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-06-22 13:56:40
+#  Last modified 2022-06-22 17:32:57
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -235,7 +235,7 @@ all: fractol
 src/color.o: src/color.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `src/color'
-#  Last modified 2022-06-22 13:56:40
+#  Last modified 2022-06-22 17:10:45
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -261,7 +261,7 @@ script:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-22 13:50:52
+#  Last modified 2022-06-22 16:55:20
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -270,7 +270,19 @@ Makefile:
 src/fractol.o: src/fractol.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `src/fractol'
-#  Last modified 2022-06-22 13:54:49
+#  Last modified 2022-06-22 17:10:45
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 49):
+	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
+	
+
+src/zoom.o: src/zoom.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/zoom'
+#  Last modified 2022-06-22 17:32:57
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -287,6 +299,7 @@ bonus:
 
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
+ 
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
@@ -297,10 +310,9 @@ fclean: clean
 src/events.o: src/events.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `src/events'
-#  Last modified 2022-06-22 13:54:49
+#  Last modified 2022-06-22 17:10:45
 #  File has been updated.
 #  Successfully updated.
- 
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 #  commands to execute (from `Makefile', line 49):
@@ -310,7 +322,7 @@ src/events.o: src/events.c
 src/init.o: src/init.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `src/init'
-#  Last modified 2022-06-22 13:54:49
+#  Last modified 2022-06-22 17:10:45
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -328,7 +340,7 @@ src/init.o: src/init.c
 # Not a target:
 src/color.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-22 13:56:25
+#  Last modified 2022-06-22 17:08:16
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -337,7 +349,7 @@ src/color.c:
 # Not a target:
 src/fractol.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-22 13:52:22
+#  Last modified 2022-06-22 17:05:41
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -360,9 +372,18 @@ clean:
 	
 
 # Not a target:
+src/zoom.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-22 17:32:55
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
 src/events.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-22 13:53:05
+#  Last modified 2022-06-22 17:07:13
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -371,14 +392,14 @@ src/events.c:
 # Not a target:
 src/init.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-20 15:03:36
+#  Last modified 2022-06-22 16:58:35
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # files hash-table stats:
-# Load=19/1024=2%, Rehash=0, Collisions=0/57=0%
+# Load=21/1024=2%, Rehash=0, Collisions=1/63=2%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -390,6 +411,6 @@ src/init.c:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Wed Jun 22 15:00:56 2022
+# Finished Make data base on Wed Jun 22 17:58:40 2022
 
  

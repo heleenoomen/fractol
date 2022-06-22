@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:00:26 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/20 15:03:36 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/22 16:58:35 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,12 @@ void	init(t_fr *fr)
 	fr->win_height = 500;
 	fr->depth_min = 0;
 	fr->depth_max = 600;
+	fr->re_max = 2;
+	fr->re_min = -2;
+	fr->im_min = -2;
+	fr->im_max = 2;
+	fr->scope = 4;
+	fr->zoom = 1;
 	my_mlx_init(fr);
 	init_window(fr);
 	init_img(fr);

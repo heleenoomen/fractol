@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 15:50:05 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/22 16:43:33 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/22 18:55:36 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int	calc_max_iterations(t_fr *fr, double c_re, double c_im)
 	double	z_re2;
 	double	z_im2;
 
-	c_re = fr->min_coord + ((c_re / 500) * fr->scope);
-	c_im = fr->min_coord + ((c_im / 500) * fr->scope);
-	i = fr->depth_min;
+	c_re = fr->re_min + ((c_re / 500) * fr->scope);
+	c_im = fr->im_max - ((c_im / 500) * fr->scope);
+	i = 0;
 	z_re = 0;
 	z_im = 0;
 	while (i < fr->depth_max)
@@ -100,26 +100,16 @@ void	color_coord(t_fr *fr, double c_re, double c_im)
 
 	i = calc_max_iterations(fr, c_re, c_im);
 	//spooky(fr, c_re, c_im, i);
-	//pink(fr, c_re, c_im, i);
+	pink(fr, c_re, c_im, i);
 	//blue(fr, c_re, c_im, i);
-	bernstein(fr, c_re, c_im, i);
+	//bernstein(fr, c_re, c_im, i);
 	//bluish(fr, c_re, c_im, i);
 }
-
-void	init_coords(t_fr *fr)
-{
-	fr->zoom = 0;
-	fr->min_coord = -2;
-	fr->max_coord = 2;
-	fr->scope = fr->max_coord - fr->min_coord;
-}
-
 
 void	make_image(t_fr *fr)
 {
 	double	c[2];
 
-	init_coords(fr);
 	c[IM] = 0;
 	while (c[IM] <= fr->win_height)
 	{
@@ -132,4 +122,5 @@ void	make_image(t_fr *fr)
 		}
 		c[IM]++; //+=fr->step;
 	}
+	mlx_put_image_to_window(fr->mlx, fr->win, fr->img, 0, 0);
 }
