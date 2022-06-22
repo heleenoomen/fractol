@@ -8,12 +8,16 @@ int	close_fractol(int keycode, t_fr *fr)
 		free(fr->mlx);
 		exit(0);
 	}
-	if (keycode == 7)  // x for add depth
+	else if (keycode == 7)  // x for add depth
 		add_depth(fr);
-	if (keycode == 6)
+	else if (keycode == 6)
 		remove_depth(fr);
-	if (keycode == 15)  // r for reset
+	else if (keycode == 15)  // r for reset
 		reset_my_fractal(fr);
+	else if (keycode == 35)
+		switch_to_pink(fr);
+	else if (keycode == 11)
+		switch_to_bernstein(fr);
 	return (0);
 }
 

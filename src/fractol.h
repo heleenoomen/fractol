@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:24:31 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/22 21:40:12 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/22 21:46:12 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,7 @@ int		add_depth(t_fr *fr);
 int		reset_my_fractal(t_fr *fr);
 void	remove_depth(t_fr *fr);
 void	print_coords(int x, int y, t_fr *fr);
+void	switch_to_bernstein(t_fr *fr);
+void	switch_to_pink(t_fr *fr);
 
 #endif

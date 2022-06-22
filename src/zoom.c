@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 16:32:54 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/22 21:42:05 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/22 21:46:15 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	switch_to_bernstein(t_fr *fr)
 	make_image(fr);
 }
 
-void	switch_to_pinkt(t_fr *fr)
+void	switch_to_pink(t_fr *fr)
 {
 	fr->coloring_algorithm = 'p';
 	make_image(fr);

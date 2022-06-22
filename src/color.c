@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 15:50:05 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/22 21:41:04 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/22 21:45:46 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,10 @@ void	color_coord(t_fr *fr, double c_re, double c_im)
 
 	i = calc_max_iterations(fr, c_re, c_im);
 	//spooky(fr, c_re, c_im, i);
-	if (fr->coloring_algorithm =  'p')
+	if (fr->coloring_algorithm == 'p')
 		pink(fr, c_re, c_im, i);
 	//blue(fr, c_re, c_im, i);
-	if (fr->coloring_algorithm = 'b')
+	if (fr->coloring_algorithm == 'b')
 		bernstein(fr, c_re, c_im, i);
 	//bluish(fr, c_re, c_im, i);
 }
