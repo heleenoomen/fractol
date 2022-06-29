@@ -42,6 +42,12 @@
 # define RAINBOW 4
 # define DEFAULT_COLORS 5
 
+/*
+// zoom modus
+*/
+# define ZOOM_INIT -1
+# define ZOOM_IN 1
+# define ZOOM_OUT 0
 
 /*
 // window size
@@ -85,7 +91,7 @@ typedef struct s_zoom
 	double	scope;
 	double	zoom;
 	short	modus;
-	double	depth_max;
+	int		depth_max;
 }			t_zoom;
 
 /*
@@ -107,6 +113,6 @@ void	parse_fr(t_p *parms, int argc, char **argv);
 /*
 // init.c
 */
-void	init(t_fr *fr);
+void	init(t_win *window, t_zoom *zoom);
 
 #endif

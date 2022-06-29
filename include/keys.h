@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   keys.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/01 09:37:16 by hoomen            #+#    #+#             */
-/*   Updated: 2022/04/02 16:46:44 by hoomen           ###   ########.fr       */
+/*   Created: 2022/06/29 19:33:54 by hoomen            #+#    #+#             */
+/*   Updated: 2022/06/29 19:40:05 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#ifndef KEYS_H
+# define KEYS_H
 
-int	ft_lstsize(t_list *lst)
-{
-	int	size;
+/*
+// keyboard codes (Mac OS)
+*/
+# define KC_ESC 53
+# define KC_Q 12
+# define KC_X 7
+# define KC_Z 6
+# define KC_R 15
+# define KC_P 35
+# define KC_B 11
+# define KC_I 34
 
-	size = 0;
-	while (lst)
-	{
-		size++;
-		lst = lst->next;
-	}
-	return (size);
-}
+/*
+// mouse button codes
+*/
+# define SCROLL_UP 5
+# define SCROLL_DOWN 4
+# define RIGHT_CLICK 2
+
+
+
+#endif

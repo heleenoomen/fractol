@@ -10,7 +10,7 @@
                 "/usr/lib",
                 "${workspaceFolder}/mlx",
                 "${workspaceFolder}/mlx",
-                "${workspaceFolder}/includes"
+                "${workspaceFolder}/include"
             ],
             "defines": [],
             "macFrameworkPath": [

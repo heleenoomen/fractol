@@ -6,7 +6,7 @@
 #    By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/29 12:38:38 by hoomen            #+#    #+#              #
-#    Updated: 2022/06/29 19:06:34 by hoomen           ###   ########.fr        #
+#    Updated: 2022/06/29 19:41:45 by hoomen           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ INCFLAGS = -I libft -I ftprintf -I mlx -I include
 
 CC		= cc
 FLAGS	= -Wall -Werror -Wextra
+
 NAME	= fractol
 HEADER	= include/fractol_def.h
 SRC		= main.c parse.c init.c
