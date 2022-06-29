@@ -6,13 +6,12 @@
 #    By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/29 12:38:38 by hoomen            #+#    #+#              #
-#    Updated: 2022/06/29 15:58:19 by hoomen           ###   ########.fr        #
+#    Updated: 2022/06/29 18:04:50 by hoomen           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 VPATH	= src
-INCFLAGS = -Ilibft -Iftprintf
-
+INCFLAGS = -Ilibft -Iftprintf -Iincludes
 CC		= cc
 FLAGS	= -Wall -Werror -Wextra
 NAME	= fractol

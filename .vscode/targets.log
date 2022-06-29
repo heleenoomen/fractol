@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Wed Jun 29 13:48:48 2022
+# Make data base, printed on Wed Jun 29 18:12:01 2022
 
 # Variables
 
@@ -16,9 +16,9 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
-# makefile (from `Makefile', line 18)
-OBJ = $(SRC:.c=.o)
-# makefile (from `Makefile', line 17)
+# makefile (from `Makefile', line 22)
+OBJ = $(addprefix obj/,$(notdir $(SRC:.c=.o)))
+# makefile (from `Makefile', line 20)
 SRC = main.c parse.c
 # environment
 VSCODE_LOG_NATIVE = false
@@ -41,11 +41,15 @@ MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000ccdm00333d/T/vscode-ipc-77de4be8-4e05-41f9-9ffe-3cfc14c66404.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000ccdm00333d/T/vscode-ipc-acefb5fd-7741-4856-8a0d-66c160c41389.sock
 # environment
 VSCODE_CWD = /
 # environment
 PATH = /Users/hoomen/goinfre/.brew/bin:/Users/hoomen/goinfre/.brew/bin:/Users/hoomen/.brew/bin:/Users/hoomen/goinfre/.brew/bin:/Users/hoomen/.brew/bin:/Users/hoomen/.brew/bin:/Users/hoomen/goinfre/.brew/bin:/Users/hoomen/goinfre/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Apple/usr/bin
+# makefile (from `Makefile', line 13)
+VPATH = src
+# environment
+LaunchInstanceID = 8FF0CFCA-D58F-474E-B4D4-A8509D885240
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -53,7 +57,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.R3jaiONE0U/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.cMrtAjrlQG/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -86,7 +90,7 @@ MAKE = $(MAKE_COMMAND)
 MAKECMDGOALS := all
 # environment
 SHLVL = 1
-# makefile (from `Makefile', line 14)
+# makefile (from `Makefile', line 16)
 CC = cc
 # default
 MAKE_VERSION := 3.81
@@ -94,7 +98,7 @@ MAKE_VERSION := 3.81
 USER = hoomen
 # makefile
 .DEFAULT_GOAL := fractol
-# makefile (from `Makefile', line 16)
+# makefile (from `Makefile', line 18)
 NAME = fractol
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
@@ -108,6 +112,8 @@ TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n000ccdm00333d/T/
 *F = $(notdir $*)
 # environment
 VSCODE_IPC_HOOK = /Users/hoomen/Library/Application Support/Code/1.67.2-main.sock
+# makefile (from `Makefile', line 14)
+INCFLAGS = -I libft -I ftprintf -I mlx
 # makefile
 MAKEFLAGS = Rrqp
 # environment
@@ -115,24 +121,32 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.microsoft.VSCode.2176
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
 # environment
 __CF_USER_TEXT_ENCODING = 0x18C6D:0x0:0x0
+# environment
+COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
 # automatic
 <F = $(notdir $<)
 # environment
 LC_ALL = C
+# makefile (from `Makefile', line 19)
+HEADER = fractol_def.h
+# makefile (from `Makefile', line 21)
+LIBS = libft/libft.a ftprintf/libftprintf.a
+# environment
+SECURITYSESSIONID = 186a7
 # automatic
 ^F = $(notdir $^)
 # default
 SUFFIXES := 
-# makefile (from `Makefile', line 15)
+# makefile (from `Makefile', line 17)
 FLAGS = -Wall -Werror -Wextra
 # default
 .INCLUDE_DIRS = /usr/local/include
@@ -141,9 +155,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 18001
+VSCODE_PID = 2593
 # variable set hash-table stats:
-# Load=65/1024=6%, Rehash=0, Collisions=3/84=4%
+# Load=72/1024=7%, Rehash=0, Collisions=3/104=3%
 
 # Pattern-specific Variable Values
 
@@ -151,34 +165,58 @@ VSCODE_PID = 18001
 
 # Directories
 
-# . (device 16777225, inode 1303485): 21 files, no impossibilities.
+# . (device 16777225, inode 1303485): 19 files, 1 impossibilities.
+# src (device 16777225, inode 1304457): 10 files, no impossibilities.
+# ftprintf (device 16777225, inode 1477987): No files, no impossibilities so far.
+# libft (device 16777225, inode 1478006): No files, no impossibilities so far.
 
-# 21 files, no impossibilities in 1 directories.
+# 29 files, 1 impossibilities in 4 directories.
 
 # Implicit Rules
 
-%.o: %.c
-#  commands to execute (from `Makefile', line 24):
-	$(CC) $(FLAGS) -c $< -o $@
+obj/%.o: %.c libft/libft.a ftprintf/libftprintf.a fractol_def.h | obj
+#  commands to execute (from `Makefile', line 28):
+	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
 	
 
 # 1 implicit rules, 0 (0.0%) terminal.
 
 # Files
 
-fractol: main.o parse.o
+fractol: obj/main.o obj/parse.o | libft/libft.a ftprintf/libftprintf.a
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  commands to execute (from `Makefile', line 21):
-	$(CC) $(FLAGS) -o $@ $^
+#  Last modified 2022-06-29 17:58:37
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 25):
+	$(CC) $(FLAGS) -o $@ $^ -Llibft -lft -Lftprintf -lftprintf -lm -Lmlx -lmlx -framework OpenGL -framework AppKit 
 	
 
 all: fractol
+#  Phony target (prerequisite of .PHONY).
 #  Command-line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+.PHONY: all clean fclean re
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+
+# Not a target:
+obj/main.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-29 17:58:37
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 .SUFFIXES:
@@ -188,16 +226,41 @@ all: fractol
 
 # Not a target:
 Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-29 16:03:17
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+libft/libft.a:
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-06-29 17:58:36
+#  File has been updated.
+#  Successfully updated.
+#  commands to execute (from `Makefile', line 34):
+	-(cd libft && make)
+	-(cd ftprintf && make && make clean)
+	-(cd libft && make clean)
+	
 
 fclean: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 44):
+	rm -f $(NAME)
+	-(cd libft && make fclean)
+	-(cd ftprintf && make fclean)
+	
+
+obj:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 32):
-	rm -f $(NAME)
+#  commands to execute (from `Makefile', line 31):
+	mkdir obj
 	
 
 # Not a target:
@@ -207,33 +270,55 @@ fclean: clean
 #  File has not been updated.
 
 re: clean all
+#  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
-#  Modification time never checked.
+#  File does not exist.
 #  File has not been updated.
 
+# Not a target:
+obj/parse.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-29 17:58:37
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
 clean:
+#  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
-#  Modification time never checked.
+#  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 29):
-	rm -f *.o
+#  commands to execute (from `Makefile', line 41):
+	rm -rf obj
+	
+
+ftprintf/libftprintf.a:
+#  Implicit rule search has not been done.
+#  Last modified 2022-06-29 17:58:37
+#  File has been updated.
+#  Successfully updated.
+#  commands to execute (from `Makefile', line 34):
+	-(cd libft && make)
+	-(cd ftprintf && make && make clean)
+	-(cd libft && make clean)
 	
 
 # files hash-table stats:
-# Load=8/1024=1%, Rehash=0, Collisions=0/10=0%
+# Load=14/1024=1%, Rehash=0, Collisions=0/60=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
 
-# No general (`VPATH' variable) search path.
+# General (`VPATH' variable) search path:
+# src
 
 # # of strings in strcache: 1
 # # of strcache buffers: 1
+ 
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Wed Jun 29 13:48:48 2022
+# Finished Make data base on Wed Jun 29 18:12:01 2022
 
  
-Makefile:36: *** missing separator.  Stop.
-
