@@ -1,4 +1,4 @@
-#include"fractol_def.h"
+#include "fractol_def.h"
 
 void	usage_exit(char *message)
 {
@@ -22,11 +22,11 @@ void	parse_fractal(t_p *parms, char *s)
 		else
 			usage_exit(USAGE_NAME);
 	}
-	else if (ft_strncmp_uplo(s, "Mandelbrot", MAN_LEN) == 0)
+	else if (ft_strncmp_uplo(s, M, ft_strlen(M) + 1) == 0)
 		parms->fractal = 'M';
-	else if (ft_strncmp_uplo(s, "Julia", JU_LEN) == 0)
+	else if (ft_strncmp_uplo(s, J, ft_strlen(J) + 1) == 0)
 		parms->fractal = 'J';
-	else if (ft_strncmp_uplo(s, "Newton", NWT_LEN) == 0)
+	else if (ft_strncmp_uplo(s, N, ft_strlen(N) + 1) == 0)
 		parms->fractal = 'N';
 	else
 		usage_exit(USAGE_NAME);
@@ -34,15 +34,13 @@ void	parse_fractal(t_p *parms, char *s)
 
 void	parse_color(t_p *parms, char *s)
 {
-	if (s[1] != 0)
+	if (ft_strncmp_uplo(s, NA, ft_strlen(NA) + 1) == 0)
 		parms->color = NATURAL;
-	if (ft_strncmp_uplo(s, "natural", NAT_LEN) == 0)
-		parms->color = NATURAL;
-	else if (ft_strncmp_uplo(s, "pink", PIN_LEN) == 0)
+	else if (ft_strncmp_uplo(s, PI, ft_strlen(PI) + 1) == 0)
 		parms->color = PINK;
-	else if (ft_strncmp_uplo(s, "green", GREEN_LEN) == 0)
+	else if (ft_strncmp_uplo(s, GR, ft_strlen(GR) + 1) == 0)
 		parms->color = GREEN;
-	else if (ft_strncmp_uplo(s, "rainbow", RAINB_LEN) == 0)
+	else if (ft_strncmp_uplo(s, RA, ft_strlen(RA) + 1) == 0)
 		parms->color = RAINBOW;
 	else if (parms->fractal == 'J')
 		parms->color = DEFAULT_COLORS;

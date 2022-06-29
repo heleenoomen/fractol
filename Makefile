@@ -6,18 +6,18 @@
 #    By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/29 12:38:38 by hoomen            #+#    #+#              #
-#    Updated: 2022/06/29 16:03:17 by hoomen           ###   ########.fr        #
+#    Updated: 2022/06/29 19:06:34 by hoomen           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 VPATH	= src
-INCFLAGS = -I libft -I ftprintf -I mlx
+INCFLAGS = -I libft -I ftprintf -I mlx -I include
 
 CC		= cc
 FLAGS	= -Wall -Werror -Wextra
 NAME	= fractol
-HEADER	= fractol_def.h
-SRC		= main.c parse.c
+HEADER	= include/fractol_def.h
+SRC		= main.c parse.c init.c
 LIBS	= libft/libft.a ftprintf/libftprintf.a
 OBJ		= $(addprefix obj/,$(notdir $(SRC:.c=.o)))
 

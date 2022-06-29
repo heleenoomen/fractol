@@ -1,11 +1,6 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory `/Users/hoomen/projects/fractol'
-(cd libft && make)
-(cd ftprintf && make && make clean)
-(cd libft && make clean)
-(cd libft && make)
-(cd ftprintf && make && make clean)
-(cd libft && make clean)
-cc -Wall -Werror -Wextra -o fractol obj/main.o obj/parse.o -Llibft -lft -Lftprintf -lftprintf -lm -Lmlx -lmlx -framework OpenGL -framework AppKit 
+make: `fractol' is up to date.
+ 
 make: Leaving directory `/Users/hoomen/projects/fractol'
  
