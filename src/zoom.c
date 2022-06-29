@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 16:32:54 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/22 21:46:15 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/23 16:12:35 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,50 +17,36 @@ int	zoom(int x, int y, t_fr *fr, double factor)
 	double	re_pos;
 	double	im_pos;
 	
-	// printf("scope old = %f\n", fr->scope);
-	// printf("re_min old = %f\n", fr->re_min);
-	// printf("x = %i\n", x);
-	// printf("y = %i\n", y);
-	printf("factor = %f\n", factor);
 	re_pos = fr->re_min + (((double) x / 500) * fr->scope);
 	im_pos = fr->im_max - (((double) y / 500) * fr->scope);
-	// printf("re_pos = %f\n", re_pos);
-	// printf("im_pos = %f\n", im_pos);
 	if (factor > 1 && fr->zoom < 1)
 		fr->zoom = 1;
 	else if (factor < 1 && fr->zoom > 1)
 		fr->zoom = 1;
-	if ((factor > 1 && fr->scope < 10) || (factor < 1 && fr->scope > 0.0000000000001))
+	if ((factor > 1 && fr->scope < 10) || (factor < 1 && fr->scope > 0.000000000001))
 		fr->zoom = factor * fr->zoom;
 	else
 	{
 		printf("zoom max is reached!");
 		fr->zoom = 1;
-	}	
+	}
 	fr->scope = fr->zoom * fr->scope;
-	// printf("scope new = %f\n", fr->scope);
 	fr->re_min = re_pos - (fr->scope / 2);
 	fr->re_max = re_pos + (fr->scope / 2);
 	fr->im_min = im_pos - (fr->scope / 2);
 	fr->im_max = im_pos + (fr->scope / 2);
-	// printf("zoom = %f\n", fr->zoom);
-	// printf("re_min = %f\n", fr->re_min);
-	// printf("re_max = %f\n", fr->re_max);
-	// printf("im_min = %f\n", fr->im_min);
-	// printf("im_max = %f\n", fr->im_max);
-	printf("factor = %.20f\n", factor);
-	printf("scope = %.20f\n", fr->scope);
-	printf("---------------------------\n");
+	printf("zoom = %.12f\n", fr->zoom);
+	printf("scope = %.12f\n", fr->scope);
 	make_image(fr);
 	return (0);
 }
 
-//void	translate(int x, int y, t_fr *fr, double factor)
+void	translate(int x, int y, t_fr *fr, double factor)
 
 int	add_depth(t_fr *fr)
 {
 	fr->depth_min = fr->depth_max;
-	fr->depth_max += 10;
+	fr->depth_max += 100;
 	printf("depth = %i\n", fr->depth_max);
 	make_image(fr);
 	return (0);
@@ -68,12 +54,14 @@ int	add_depth(t_fr *fr)
 
 void	remove_depth(t_fr *fr)
 {
-	fr->depth_max -= 10;
+	fr->depth_max -= 100;
+	printf("depth = %i\n", fr->depth_max);
 	if (fr->depth_max < 0)
 	{
 		printf("Mimimum depth is reached\n");
 		fr->depth_max = 0;
 	}
+	make_image(fr);
 }
 
 void	re_init(t_fr *fr)
@@ -94,6 +82,12 @@ int	reset_my_fractal(t_fr *fr)
 	re_init(fr);
 	make_image(fr);
 	return (0);
+}
+
+void	switch_to_rainbow(t_fr *fr)
+{
+	fr->coloring_algorithm = 'i';
+	make_image(fr);
 }
 
 void	switch_to_bernstein(t_fr *fr)

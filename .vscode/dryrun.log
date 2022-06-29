@@ -1,11 +1,7 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory `/Users/hoomen/projects/fractol'
-gcc -Wall -Wextra -Werror -Imlx -c src/fractol.c -o src/fractol.o
-gcc -Wall -Wextra -Werror -Imlx -c src/init.c -o src/init.o
-gcc -Wall -Wextra -Werror -Imlx -c src/color.c -o src/color.o
-gcc -Wall -Wextra -Werror -Imlx -c src/events.c -o src/events.o
-gcc -Wall -Wextra -Werror -Imlx -c src/zoom.c -o src/zoom.o
-gcc src/fractol.o src/init.o src/color.o src/events.o src/zoom.o -lm -Lmlx -lmlx -framework OpenGL -framework AppKit -o fractol
-echo "fractol is compiled"
+ 
 make: Leaving directory `/Users/hoomen/projects/fractol'
  
+Makefile:36: *** missing separator.  Stop.
+

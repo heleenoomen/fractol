@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 15:50:05 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/22 21:45:46 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/23 16:11:02 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,31 @@ int	calc_max_iterations(t_fr *fr, double c_re, double c_im)
 	{
 		z_re2 = z_re * z_re;
 		z_im2 = z_im * z_im;
-		if ((z_re2 + z_im2) > 4)
+		if (round(z_re2 + z_im2) > 4)
 			return (i);
 		z_im = (2 * z_re * z_im) + c_im;
 		z_re = z_re2 - z_im2 + c_re;
 		i++;
 	}
 	return (i);
+}
+
+void	rainbow(t_fr *fr, double c_re, double c_im, int i)
+{
+	double i_;
+	int		r;
+	int		g;
+	int		b;
+
+	i_ = (double) (i + 1) / (double) (fr->depth_max);
+
+	r = round (9 * (1 - i_) * pow(i_, 3) * -255 * log(i_));
+	g = round (15 * pow((1 - i_), 2) * pow(i_, 2) * -255 * log(i_));
+	b = round (8.5 * pow((1 - i_), 3) * i_ * -255 * log(i_));
+	// printf("r = %i\n", r);
+	// printf("g = %i\n", g);
+	// printf("b = %i\n", b);
+	my_mlx_pixel_put(fr, c_re, c_im, (r << 16 | g << 8 | b));
 }
 
 void	spooky(t_fr *fr, double c_re, double c_im, int i)
@@ -105,6 +123,8 @@ void	color_coord(t_fr *fr, double c_re, double c_im)
 	//blue(fr, c_re, c_im, i);
 	if (fr->coloring_algorithm == 'b')
 		bernstein(fr, c_re, c_im, i);
+	if (fr->coloring_algorithm == 'i')
+		rainbow(fr, c_re, c_im, i);
 	//bluish(fr, c_re, c_im, i);
 }
 

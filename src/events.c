@@ -15,9 +15,11 @@ int	close_fractol(int keycode, t_fr *fr)
 	else if (keycode == 15)  // r for reset
 		reset_my_fractal(fr);
 	else if (keycode == 35)
-		switch_to_pink(fr);
+		switch_to_pink(fr); // p for pink
 	else if (keycode == 11)
-		switch_to_bernstein(fr);
+		switch_to_bernstein(fr); // be for bernstein
+	else if (keycode == 34) // i for rainbow
+		switch_to_rainbow(fr);
 	return (0);
 }
 

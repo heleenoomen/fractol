@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:00:26 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/22 21:45:59 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/28 12:28:47 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	init(t_fr *fr)
 	fr->win_width = 500;
 	fr->win_height = 500;
 	fr->depth_min = 0;
-	fr->depth_max = 600;
+	fr->depth_max = 300;
 	fr->re_max = 2;
 	fr->re_min = -2;
 	fr->im_min = -2;

@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:24:31 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/22 21:46:12 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/28 15:40:25 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # include <math.h>
 # include <ctype.h>
 # include <stdio.h>
+# include "libft.h"
+# include "ft_printf.h"
 
 typedef struct s_fr
 {
@@ -32,7 +34,7 @@ typedef struct s_fr
 	void	*img;
 	void	*img_addr;
 	double	zoom;
-	double	zoom_modus;
+	int		zoom_modus;
 	double	re_min;
 	double	re_max;
 	double	im_min;
@@ -67,5 +69,6 @@ void	remove_depth(t_fr *fr);
 void	print_coords(int x, int y, t_fr *fr);
 void	switch_to_bernstein(t_fr *fr);
 void	switch_to_pink(t_fr *fr);
+void	switch_to_rainbow(t_fr *fr);
 
 #endif

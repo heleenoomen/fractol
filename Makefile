@@ -5,61 +5,47 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/03/22 15:22:54 by hoomen            #+#    #+#              #
-#    Updated: 2022/06/22 16:55:20 by hoomen           ###   ########.fr        #
+#    Created: 2022/06/29 12:38:38 by hoomen            #+#    #+#              #
+#    Updated: 2022/06/29 16:03:17 by hoomen           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# compiler variables
-CC		=	gcc
-FLAGS 	=	-Wall -Wextra -Werror
-# file variables
-NAME			= fractol
-BONUSNAME		=	
-# source files
-MAIN			= fractol
-UTILS			= init color events zoom
-LIBFT			=
-FT_PRINTF		=
-GNL				=
-# add prefix and suffix to filenames
-MAINSRC			=	$(addprefix src/, $(addsuffix .c, $(MAIN)))
-UTILSSRC		=	$(addprefix src/, $(addsuffix .c, $(UTILS)))
-BONUSSRC		=	
-LIBFTSRC		=	$(addprefix libft/ft_,$(addsuffix .c, $(LIBFT)))
-FT_PRINTFSRC	=	$(addprefix ft_printf/ft_, $(addsuffix .c, $(FT_PRINTF)))
-GNLSRC			=	$(addprefix get_next_line/, $(addsuffix .c, $(GNL)))
+VPATH	= src
+INCFLAGS = -I libft -I ftprintf -I mlx
 
-# object files
-OBJ				=	$(MAINSRC:.c=.o)
-UTILSOBJS		=	$(UTILSSRC:.c=.o)
-LIBFTOBJS		=	$(LIBFTSRC:.c=.o)
-FT_PRINTFOBJS 	=	$(FT_PRINTFSRC:.c=.o)
-GNLOBJS			=	$(GNLSRC:.c=.o)
-BONUSOBJS		=	$(BONUSSRC:.c=.o)
+CC		= cc
+FLAGS	= -Wall -Werror -Wextra
+NAME	= fractol
+HEADER	= fractol_def.h
+SRC		= main.c parse.c
+LIBS	= libft/libft.a ftprintf/libftprintf.a
+OBJ		= $(addprefix obj/,$(notdir $(SRC:.c=.o)))
 
+$(NAME) : $(OBJ) | $(LIBS)
+	$(CC) $(FLAGS) -o $@ $^ -Llibft -lft -Lftprintf -lftprintf -lm -Lmlx -lmlx -framework OpenGL -framework AppKit 
+
+obj/%.o : %.c $(LIBS) $(HEADER) | obj
+	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
+
+obj :
+	mkdir obj
+
+$(LIBS) :
+	-(cd libft && make)
+	-(cd ftprintf && make && make clean)
+	-(cd libft && make clean)
 
 all : $(NAME)
 
-$(NAME): $(OBJ) $(UTILSOBJS)
-	@$(CC) $(OBJ) $(UTILSOBJS) -lm -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
-	@echo "fractol is compiled"
+clean :
+	rm -rf obj
+	
+fclean : clean
+	rm -f $(NAME)
+	-(cd libft && make fclean)
+	-(cd ftprintf && make fclean)
 
-%.o: %.c
-	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
+re : clean all
 
-clean:
-	@rm -f *.o
-	@rm -f */*.o
+.PHONY : all clean fclean re
 
-bonus:
-
-script: $(SCRIPTOBJ) $(FT_PRINTFOBJS) $(GNLOBJS) $(LIBFTOBJS)
-	@$(CC) $(FLAGS) $(SCRIPTOBJ) $(FT_PRINTFOBJS) $(GNLOBJS) $(LIBFTOBJS)
-
-fclean: clean
-	rm -f $(NAME) $(BONUSNAME)
-
-re: fclean all
-
-.PHONY: all clean fclean re bonus
