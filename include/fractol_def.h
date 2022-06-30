@@ -90,8 +90,6 @@ typedef struct s_zoom
 	double	im_min;
 	double	im_max;
 	double	scope;
-	double	zoom;
-	short	modus;
 	int		depth_max;
 }			t_zoom;
 
@@ -105,6 +103,19 @@ typedef struct s_fr
 	t_zoom	zoom;
 }			t_fr;
 
+/*
+// struct for complex numbers, needed for Newton fractal
+*/
+typedef struct s_cplx
+{
+	double	re;
+	double	im;
+}			t_cplx;
+
+/*
+// make.c
+*/
+void	make_image(t_fr *fr);
 
 /*
 // parse.c
@@ -127,6 +138,7 @@ int		calc_newton(t_fr *fr, double x, double y);
 // color.c
 */
 void	color_pixel(t_fr *fr, double c_re, double c_im, int i);
+void	my_mlx_pixel_put(t_fr *fr, int x, int y, int color);
 
 /*
 // events.c
@@ -134,5 +146,23 @@ void	color_pixel(t_fr *fr, double c_re, double c_im, int i);
 int		keyboard(int keycode, t_fr *fr);
 int		mouse(int button, int x, int y, t_fr *fr);
 int		red_button(t_fr *fr);
+
+/*
+// zoom.c
+*/
+void	zoom(int x, int y, t_fr *fr, double zoom);
+
+
+
+// t_cplx	create_complex(double re, double im);
+// t_cplx	cplx_conj(t_cplx z);
+// double	cplx_mod(t_cplx z);
+// t_cplx	cplx_scalar(t_cplx z, double a);
+// t_cplx	cplx_inv(t_cplx z);
+// t_cplx	cplx_add(t_cplx x, t_cplx y);
+// t_cplx	cplx_sub(t_cplx x, t_cplx y);
+// t_cplx	cplx_mul(t_cplx x, t_cplx y);
+// t_cplx	cplx_pow(t_cplx x, int exp);
+// t_cplx	cplx_div(t_cplx x, t_cplx y);
 
 #endif

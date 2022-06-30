@@ -25,16 +25,16 @@ int	keyboard(int keycode, t_fr *fr)
 	return (0);
 }
 
-// int	mouse(int button, int x, int y, t_fr *fr)
-// {
-// 	//if (button == SCROLL_UP)
-// 		//zoom(x, y, fr, ZOOM);
-// 	//else if (button == SCROLL_DOWN)
-// 		//zoom(x, y, fr, (1 / ZOOM));
+int	mouse(int button, int x, int y, t_fr *fr)
+{
+	if (button == SCROLL_UP)
+		zoom(x, y, fr, ZOOM);
+	else if (button == SCROLL_DOWN)
+		zoom(x, y, fr, (1 / ZOOM));
 // 	//else if (button == RIGHT_CLICK)
 // 		//print_coords(x, y, fr);
-// 	return ();
-// }
+	return (0);
+}
 
 int	red_button(t_fr *fr)
 {

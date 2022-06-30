@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 	make_image(&fr);
 	mlx_hook(fr.window.win, 2, 0, keyboard, &fr);
 	mlx_hook(fr.window.win, 17, 0, red_button, &fr);
-	//mlx_mouse_hook(fr.window.win, mouse, &fr); 
+	mlx_mouse_hook(fr.window.win, mouse, &fr); 
 	mlx_loop(fr.window.mlx);
 	return (0);
 }
