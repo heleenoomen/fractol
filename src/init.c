@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:00:26 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/29 19:21:35 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/30 13:42:54 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	init_zoom(t_zoom *zoom)
 {
 	zoom->depth_max = 600;
 	zoom->re_max = 2;
-	zoom->re_min = 2;
+	zoom->re_min = -2;
 	zoom->im_min = -2;
 	zoom->im_max = 2;
 	zoom->scope = 4;

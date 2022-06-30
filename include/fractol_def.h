@@ -10,6 +10,7 @@
 # include "libft.h"
 # include "ft_printf.h"
 # include "fr_userinfo.h"
+# include "keys.h"
 
 /*
 // fractal names
@@ -23,7 +24,6 @@
 */
 # define J_RE_DEFAULT -0.79
 # define J_IM_DEFAULT 0.15
-
 
 /*
 // color names
@@ -48,6 +48,7 @@
 # define ZOOM_INIT -1
 # define ZOOM_IN 1
 # define ZOOM_OUT 0
+# define ZOOM 0.75
 
 /*
 // window size
@@ -114,5 +115,24 @@ void	parse_fr(t_p *parms, int argc, char **argv);
 // init.c
 */
 void	init(t_win *window, t_zoom *zoom);
+
+/*
+// fractals.c
+*/
+int		calc_mandelbrot(t_fr *fr, double x, double y);
+int		calc_julia(t_fr *fr, double x, double y);
+int		calc_newton(t_fr *fr, double x, double y);
+
+/*
+// color.c
+*/
+void	color_pixel(t_fr *fr, double c_re, double c_im, int i);
+
+/*
+// events.c
+*/
+int		keyboard(int keycode, t_fr *fr);
+int		mouse(int button, int x, int y, t_fr *fr);
+int		red_button(t_fr *fr);
 
 #endif

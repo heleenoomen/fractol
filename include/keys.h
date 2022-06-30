@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 19:33:54 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/30 11:48:07 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/06/30 13:34:54 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define KC_ARROW_UP 126
 # define KC_ARROW_DOWN 125
 # define KC_ARROW_LEFT 123
-# define KC_ARROW_UP 124
+# define KC_ARROW_RIGHT 124
 
 /*
 // numeric keys (KC = main keyboard, KC_NP = numpad)

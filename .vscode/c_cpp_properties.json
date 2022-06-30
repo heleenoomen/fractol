@@ -9,8 +9,9 @@
                 "${workspaceFolder}",
                 "/usr/lib",
                 "${workspaceFolder}/mlx",
-                "${workspaceFolder}/mlx",
-                "${workspaceFolder}/include"
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/libft",
+                "${workspaceFolder}/ftprintf"
             ],
             "defines": [],
             "macFrameworkPath": [
