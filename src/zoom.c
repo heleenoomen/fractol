@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 16:32:54 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/01 15:53:22 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/01 16:40:01 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,14 @@ void	zoom(int x, int y, t_fr *fr, double zoom)
 	make_image(fr);
 }
 
+void	reset_zoom(t_fr *fr)
+{
+	fr->zoom.depth_max = 600;
+	if (fr->calc_fractal == &calc_newton)
+		fr->zoom.depth_max_sqrt = sqrt((double) fr->zoom.depth_max);
+	fr->zoom.im_max = 2;
+	fr->zoom.re_min = -2;
+	fr->zoom.scope = 4;
+	ft_printf("reset fractal\n");
+	make_image(fr);
+}

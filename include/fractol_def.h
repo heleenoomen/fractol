@@ -169,5 +169,6 @@ int		red_button(t_fr *fr);
 // zoom.c
 */
 void	zoom(int x, int y, t_fr *fr, double zoom);
+void	reset_zoom(t_fr *fr);
 
 #endif

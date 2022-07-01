@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 12:37:07 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/01 15:52:38 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/01 16:34:59 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	calc_mandelbrot(t_fr *fr, double x, double y)
 	z_re = 0;
 	z_im = 0;
 
-	while (i < fr->zoom.depth_max)
+	while (i < 600)//fr->zoom.depth_max)
 	{
 		z_re2 = z_re * z_re;
 		z_im2 = z_im * z_im;
@@ -81,7 +81,7 @@ int	calc_julia(t_fr *fr, double x, double y)
 }
 
 /*
-// calculate iterations for newton fractal
+// calculate iterations for newton fractal for fixed function f(x) = x^3 - 1
 */
 int	calc_newton(t_fr *fr, double x, double y)
 {
