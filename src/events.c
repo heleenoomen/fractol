@@ -12,8 +12,8 @@ int	keyboard(int keycode, t_fr *fr)
 		//add_depth(fr);
 	//else if (keycode == KC_Z)
 		//remove_depth(fr);
-	//else if (keycode == KC_SPACEBAR)
-		//reset_my_fractal(fr);
+	else if (keycode == KC_SPACEBAR)
+		reset_zoom(fr);
 	// else if (keycode == KC_N)
 	// 	switch_color(fr, NATURAL);
 	// else if (keycode == KC_P)
@@ -31,8 +31,6 @@ int	mouse(int button, int x, int y, t_fr *fr)
 		zoom(x, y, fr, ZOOM);
 	else if (button == SCROLL_DOWN)
 		zoom(x, y, fr, 1 / ZOOM);
-// 	//else if (button == RIGHT_CLICK)
-// 		//print_coords(x, y, fr);
 	return (0);
 }
 

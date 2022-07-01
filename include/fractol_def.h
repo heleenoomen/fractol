@@ -61,17 +61,6 @@
 # define TOLERANCE 0.000001
 
 /*
-// parameters given by the user
-*/
-typedef struct s_p
-{
-	char	fractal;
-	short	color;
-	double	j_re;
-	double	j_im;
-}			t_p;
-
-/*
 // window and image parameters
 */
 typedef struct s_win
@@ -104,7 +93,11 @@ typedef struct s_zoom
 */
 typedef struct s_fr
 {
-	t_p		parms;
+	int		(*calc_fractal)(struct s_fr *fr, double x, double y);
+	void	(*coloring)(struct s_fr *fr, double x, double y, int i);
+	void	(*color)(struct s_fr *fr, double x, double y, int i);
+	double	j_re;
+	double	j_im;
 	t_win	window;
 	t_zoom	zoom;
 }			t_fr;
@@ -126,12 +119,12 @@ void	make_image(t_fr *fr);
 /*
 // parse.c
 */
-void	parse_fr(t_p *parms, int argc, char **argv);
+void	parse_fr(t_fr *fr, int argc, char **argv);
 
 /*
 // init.c
 */
-void	init(t_win *window, t_zoom *zoom);
+void	init(t_fr *fr);
 
 /*
 // fractals.c
@@ -151,6 +144,11 @@ t_cplx	create_complex(double re, double im);
 /*
 // color.c
 */
+void	natural(t_fr *fr, double c_re, double c_im, int i);
+void	rainbow(t_fr *fr, double c_re, double c_im, int i);
+void	psychedelic(t_fr *fr, double c_re, double c_im, int i);
+void	pink(t_fr *fr, double c_re, double c_im, int i);
+void	three_colors_only(t_fr *fr, double c_re, double c_im, int i);
 void	color_pixel(t_fr *fr, double c_re, double c_im, int i);
 void	color_newton(t_fr *fr, double c_re, double c_im, int i);
 void	my_mlx_pixel_put(t_fr *fr, int x, int y, int color);
@@ -171,18 +169,6 @@ int		red_button(t_fr *fr);
 // zoom.c
 */
 void	zoom(int x, int y, t_fr *fr, double zoom);
-
-
-
-// t_cplx	create_complex(double re, double im);
-// t_cplx	cplx_conj(t_cplx z);
-// double	cplx_mod(t_cplx z);
-// t_cplx	cplx_scalar(t_cplx z, double a);
-// t_cplx	cplx_inv(t_cplx z);
-// t_cplx	cplx_add(t_cplx x, t_cplx y);
-// t_cplx	cplx_sub(t_cplx x, t_cplx y);
-// t_cplx	cplx_mul(t_cplx x, t_cplx y);
-// t_cplx	cplx_pow(t_cplx x, int exp);
-// t_cplx	cplx_div(t_cplx x, t_cplx y);
+void	reset_zoom(t_fr *fr);
 
 #endif
