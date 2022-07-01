@@ -56,6 +56,11 @@
 # define WINSIZE 500
 
 /*
+// precision for newton root approximation
+*/
+# define TOLERANCE 0.000001
+
+/*
 // parameters given by the user
 */
 typedef struct s_p
@@ -91,6 +96,7 @@ typedef struct s_zoom
 	double	im_max;
 	double	scope;
 	int		depth_max;
+	double	depth_max_sqrt;
 }			t_zoom;
 
 /*
@@ -135,10 +141,24 @@ int		calc_julia(t_fr *fr, double x, double y);
 int		calc_newton(t_fr *fr, double x, double y);
 
 /*
+// newtons_utils.c
+*/
+t_cplx	cplx_mul(t_cplx x, t_cplx y);
+t_cplx	cplx_div(t_cplx x, t_cplx y);
+void	make_roots(t_cplx *roots1, t_cplx *roots2, t_cplx *roots3);
+t_cplx	create_complex(double re, double im);
+
+/*
 // color.c
 */
 void	color_pixel(t_fr *fr, double c_re, double c_im, int i);
+void	color_newton(t_fr *fr, double c_re, double c_im, int i);
 void	my_mlx_pixel_put(t_fr *fr, int x, int y, int color);
+
+/*
+// hsv2rgb.c
+*/
+int	hsv2rgb(double h, double s, double v);
 
 /*
 // events.c

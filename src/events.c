@@ -30,7 +30,7 @@ int	mouse(int button, int x, int y, t_fr *fr)
 	if (button == SCROLL_UP)
 		zoom(x, y, fr, ZOOM);
 	else if (button == SCROLL_DOWN)
-		zoom(x, y, fr, (1 / ZOOM));
+		zoom(x, y, fr, 1 / ZOOM);
 // 	//else if (button == RIGHT_CLICK)
 // 		//print_coords(x, y, fr);
 	return (0);
