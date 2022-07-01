@@ -1,5 +1,7 @@
 #include "fractol_def.h"
-
+/*
+// multiply complex number, inspired by fractol project -> libs -> libft -> math by cquillet
+*/
 t_cplx	cplx_mul(t_cplx x, t_cplx y)
 {
 	t_cplx	m;
