@@ -1,4 +1,4 @@
-#include "fractol.h"
+#include "fractol_def.h"
 
 t_cplx	cplx_mul(t_cplx x, t_cplx y)
 {

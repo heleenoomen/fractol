@@ -9,84 +9,90 @@ void	usage_exit(char *message)
 	exit (1);
 }
 
-void	parse_fractal(t_p *parms, char *s)
+void	parse_fractal(t_fr *fr, char *s)
 {
 	if (s[1] == '\0')
 	{
 		if (s[0] == 'M' || s[0] == 'm')
-			parms->fractal = 'M';
+			fr->calc_fractal = &calc_mandelbrot;
 		else if (s[0] == 'J' || s[0] == 'j')
-			parms->fractal = 'J';
+			fr->calc_fractal = &calc_julia;
 		else if (s[0] == 'N' || s[0] == 'n')
-			parms->fractal = 'N';
+			fr->calc_fractal = &calc_newton;
 		else
 			usage_exit(USAGE_NAME);
 	}
 	else if (ft_strncmp_uplo(s, M, ft_strlen(M) + 1) == 0)
-		parms->fractal = 'M';
+		fr->calc_fractal = &calc_mandelbrot;
 	else if (ft_strncmp_uplo(s, J, ft_strlen(J) + 1) == 0)
-		parms->fractal = 'J';
+		fr->calc_fractal = &calc_julia;
 	else if (ft_strncmp_uplo(s, N, ft_strlen(N) + 1) == 0)
-		parms->fractal = 'N';
+		fr->calc_fractal = &calc_newton;
 	else
 		usage_exit(USAGE_NAME);
 }
 
-void	parse_color(t_p *parms, char *s)
+void	parse_color(t_fr *fr, char *s)
 {
 	if (ft_strncmp_uplo(s, NA, ft_strlen(NA) + 1) == 0)
-		parms->color = NATURAL;
+		fr->color = &natural;
 	else if (ft_strncmp_uplo(s, PI, ft_strlen(PI) + 1) == 0)
-		parms->color = PINK;
+		fr->color = &pink;
 	else if (ft_strncmp_uplo(s, GR, ft_strlen(GR) + 1) == 0)
-		parms->color = GREEN;
+		fr->color = &psychedelic;
 	else if (ft_strncmp_uplo(s, RA, ft_strlen(RA) + 1) == 0)
-		parms->color = RAINBOW;
-	else if (parms->fractal == 'J')
-		parms->color = DEFAULT_COLORS;
+		fr->color = &rainbow;
+	else if (fr->calc_fractal == &calc_julia)
+		fr->color = NULL;
 	else
 		usage_exit(USAGE_COLOR);
 }
 
-void	parse_julia(t_p *parms, int argc, char **argv)
+void	parse_julia(t_fr *fr, int argc, char **argv)
 {
-	if (parms->color == DEFAULT_COLORS && argc > 2)
+	if (fr->color == NULL && argc > 2)
 	{
 		if (argc == 3)
 			usage_exit(USAGE_JULIA);
 		if (argc == 5)
 			usage_exit(NULL);
-		parms->j_re = ft_atof(argv[2]);
-		parms->j_im = ft_atof(argv[3]);
+		fr->j_re = ft_atof(argv[2]);
+		fr->j_im = ft_atof(argv[3]);
+		fr->color = &natural;
 	}
 	else if (argc > 3)
 	{
 		if (argc == 4)
 			usage_exit(USAGE_JULIA);
-		parms->j_re = ft_atof(argv[3]);
-		parms->j_im = ft_atof(argv[4]);
+		fr->j_re = ft_atof(argv[3]);
+		fr->j_im = ft_atof(argv[4]);
 	}
 	else
 	{
-		parms->j_re = J_RE_DEFAULT;
-		parms->j_im = J_IM_DEFAULT;
+		fr->j_re = J_RE_DEFAULT;
+		fr->j_im = J_IM_DEFAULT;
 	}
-	if (parms->j_re > 2 || parms->j_im > 2)
+	if (fr->j_re > 2 || fr->j_im > 2)
 		ft_printf("%s\n", WARNING_JULIA);
 }
 
-void	parse_fr(t_p *parms, int argc, char **argv)
+void	parse_fr(t_fr *fr, int argc, char **argv)
 {
 	if (argc == 1 || argc > 5)
 		usage_exit(NULL);
-	parse_fractal(parms, argv[1]);
-	if (argc > 3 && parms->fractal != 'J')
+	parse_fractal(fr, argv[1]);
+	if (fr->calc_fractal == &calc_newton)
+		fr->coloring = &color_newton;
+	else
+		fr->coloring = &color_pixel;
+	if (argc > 3 && fr->calc_fractal != &calc_julia)
 		usage_exit(NULL);
 	if (argc > 2)
-		parse_color(parms, argv[2]);
+		parse_color(fr, argv[2]);
 	else
-		parms->color = DEFAULT_COLORS;
-	if (parms->fractal == 'J')
-		parse_julia(parms, argc, argv);
+		fr->color = &natural;
+	if (fr->calc_fractal == &calc_julia)
+		parse_julia(fr, argc, argv);
+	ft_printf("parse_fr, address of calc_fractal = %p\n", fr->calc_fractal);
 }
 

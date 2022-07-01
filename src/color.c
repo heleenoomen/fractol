@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 15:50:05 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/01 14:00:42 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/01 15:51:19 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	pink(t_fr *fr, double c_re, double c_im, int i)
 	my_mlx_pixel_put(fr, c_re, c_im, (0x00FF0000 + (100 * i)));
 }
 
-void	color_newton_three_colors(t_fr *fr, double x, double y, int i)
+void	three_colors_only(t_fr *fr, double x, double y, int i)
 {
 	if (i == 0)
 		my_mlx_pixel_put(fr, x, y, 0);
@@ -69,13 +69,13 @@ void	rainbow(t_fr *fr, double c_re, double c_im, int i)
 	my_mlx_pixel_put(fr, c_re, c_im, hsv2rgb(i_, 0.85, 0.85));
 }
 
-void	color_newton(t_fr *fr, double c_re, double c_im, int i)
+void	color_newton(t_fr *fr, double x, double y, int i)
 {
 	double	j;
 	
-	if (fr->parms.color == GREEN)
+	if (fr->color == &three_colors_only)
 	{
-		color_newton_three_colors(fr, c_re, c_im, i);
+		three_colors_only(fr, x, y, i);
 		return ;
 	}
 	j = sqrt(i);
@@ -85,18 +85,20 @@ void	color_newton(t_fr *fr, double c_re, double c_im, int i)
 		j = sqrt(i);
 	}
 	i = (int) round(i * j);
-	color_pixel(fr, c_re, c_im, i);
+	color_pixel(fr, x, y, i);
 }
 
-void	color_pixel(t_fr *fr, double c_re, double c_im, int i)
+void	color_pixel(t_fr *fr, double x, double y, int i)
 {
-	if (fr->parms.color == NATURAL || fr->parms.color == DEFAULT_COLORS)
-		natural(fr, c_re, c_im, i);
-	else if (fr->parms.color  == PINK)
-		pink(fr, c_re, c_im, i);
-	else if (fr->parms.color  == GREEN)
-		psychedelic(fr, c_re, c_im, i);
-	else if (fr->parms.color  == RAINBOW)
-		rainbow(fr, c_re, c_im, i);
+	fr->color(fr, x, y, i);
+	
+	// if (fr->parms.color == NATURAL || fr->parms.color == DEFAULT_COLORS)
+	// 	natural(fr, c_re, c_im, i);
+	// else if (fr->parms.color  == PINK)
+	// 	pink(fr, c_re, c_im, i);
+	// else if (fr->parms.color  == GREEN)
+	// 	psychedelic(fr, c_re, c_im, i);
+	// else if (fr->parms.color  == RAINBOW)
+	// 	rainbow(fr, c_re, c_im, i);
 }
 

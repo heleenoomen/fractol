@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:00:26 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/01 12:41:37 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/01 15:44:30 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,12 @@ void	init_zoom(t_zoom *zoom)
 	zoom->scope = 4;
 }
 
-void	init(t_win *window, t_zoom *zoom)
+void	init(t_fr *fr)
 {
-	my_mlx_init(window);
-	init_window(window);
-	init_img(window);
-	init_zoom(zoom);
+	my_mlx_init(&(fr->window));
+	init_window(&(fr->window));
+	init_img(&(fr->window));
+	init_zoom(&(fr->zoom));
+	if (fr->calc_fractal == &calc_newton && fr->color != &three_colors_only)
+		fr->zoom.depth_max_sqrt = sqrt((double) fr->zoom.depth_max);
 }

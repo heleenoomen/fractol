@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 12:37:07 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/01 15:14:07 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/01 15:52:38 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ int	calc_julia(t_fr *fr, double x, double y)
 		z_im2 = z_im * z_im;
 		if (z_re2 + z_im2 > 4)
 			return (i);
-		z_im = (2 * z_re * z_im) + fr->parms.j_im;
-		z_re = z_re2 - z_im2 + fr->parms.j_re;
+		z_im = (2 * z_re * z_im) + fr->j_im;
+		z_re = z_re2 - z_im2 + fr->j_re;
 		i++;
 	}
 	return (i);
