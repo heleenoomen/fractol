@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 19:14:44 by hoomen            #+#    #+#             */
-/*   Updated: 2022/04/19 18:33:51 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/04 13:03:59 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	ft_convert(t_io *io, t_mod *mods)
 	else if (mods->conspec == 'u' || mods->conspec == 'x'
 		|| mods->conspec == 'X')
 		ft_printnbr(io, mods, (unsigned long int) va_arg(io->ap, unsigned int));
+	else if (mods->conspec == 'f')
+		ft_printfloat(io, mods);
 	else
 		ft_printnbr(io, mods, va_arg(io->ap, unsigned long int));
 }

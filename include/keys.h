@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 19:33:54 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/30 13:34:54 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/04 18:45:41 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@
 */
 # define KC_ESC 53
 # define KC_SPACEBAR 49
+# define KC_CURLY_BR_OPEN 33
+# define KC_SEMI_COLON 41
+# define KC_QUOT_MARK 39
+# define KC_FW_SLASH 44
 
 /*
 // arrow keys
@@ -87,11 +91,18 @@
 # define KC_Y 16
 # define KC_Z 6
 
+
+/*
+// function keys
+*/
+# define KC_F1 122
+
 /*
 // mouse button codes
 */
 # define SCROLL_UP 5
 # define SCROLL_DOWN 4
 # define RIGHT_CLICK 2
+# define LEFT_CLICK 1
 
 #endif
