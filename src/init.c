@@ -6,11 +6,11 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:00:26 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/01 15:44:30 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/04 20:32:07 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol_def.h"
+#include "fractol.h"
 
 void	my_mlx_init(t_win *win)
 {
@@ -41,7 +41,7 @@ void	init_img(t_win *win)
 
 void	init_zoom(t_zoom *zoom)
 {
-	zoom->depth_max = 600;
+	zoom->depth_max = 100;
 	zoom->re_min = -2;
 	zoom->im_max = 2;
 	zoom->scope = 4;
@@ -53,6 +53,7 @@ void	init(t_fr *fr)
 	init_window(&(fr->window));
 	init_img(&(fr->window));
 	init_zoom(&(fr->zoom));
-	if (fr->calc_fractal == &calc_newton && fr->color != &three_colors_only)
+	if (fr->calc_fractal == &calc_newton)
 		fr->zoom.depth_max_sqrt = sqrt((double) fr->zoom.depth_max);
+	fr->color_shift = 0;
 }

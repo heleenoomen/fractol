@@ -1,4 +1,4 @@
-#include "fractol_def.h"
+#include "fractol.h"
 
 void	usage_exit(char *message)
 {
@@ -34,23 +34,35 @@ void	parse_fractal(t_fr *fr, char *s)
 
 void	parse_color(t_fr *fr, char *s)
 {
-	if (ft_strncmp_uplo(s, NA, ft_strlen(NA) + 1) == 0)
-		fr->color = &natural;
-	else if (ft_strncmp_uplo(s, PI, ft_strlen(PI) + 1) == 0)
-		fr->color = &pink;
-	else if (ft_strncmp_uplo(s, GR, ft_strlen(GR) + 1) == 0)
-		fr->color = &psychedelic;
-	else if (ft_strncmp_uplo(s, RA, ft_strlen(RA) + 1) == 0)
-		fr->color = &rainbow;
+	if (s[1] == '\0')
+	{
+		if (s[0] == 'B' || s[0] == 'b')
+			fr->coloring = &bernstein;
+		else if (s[0] == 'R' || s[0] == 'r')
+			fr->coloring = &rainbow;
+		else if (s[0] == 'P' || s[0] == 'p')
+			fr->coloring= &psychedelic;
+		else
+			usage_exit(USAGE_NAME);
+	}
+	else if (ft_strncmp_uplo(s, "be", 3) == 0
+		|| ft_strncmp_uplo(s, BE, ft_strlen(BE) + 1) == 0)
+		fr->coloring = &bernstein;
+	else if (ft_strncmp_uplo(s, "ra", 3) == 0
+		|| ft_strncmp_uplo(s, RA, ft_strlen(RA) + 1) == 0)
+		fr->coloring = &rainbow;
+	else if (ft_strncmp_uplo(s, "ps", 3) == 0
+		|| ft_strncmp_uplo(s, PS, ft_strlen(PS) + 1) == 0)
+		fr->coloring = &psychedelic;
 	else if (fr->calc_fractal == &calc_julia)
-		fr->color = NULL;
+		fr->coloring = NULL;
 	else
 		usage_exit(USAGE_COLOR);
 }
 
 void	parse_julia(t_fr *fr, int argc, char **argv)
 {
-	if (fr->color == NULL && argc > 2)
+	if (fr->coloring == NULL && argc > 2)
 	{
 		if (argc == 3)
 			usage_exit(USAGE_JULIA);
@@ -58,7 +70,7 @@ void	parse_julia(t_fr *fr, int argc, char **argv)
 			usage_exit(NULL);
 		fr->j_re = ft_atof(argv[2]);
 		fr->j_im = ft_atof(argv[3]);
-		fr->color = &natural;
+		fr->coloring = &bernstein;
 	}
 	else if (argc > 3)
 	{
@@ -81,18 +93,13 @@ void	parse_fr(t_fr *fr, int argc, char **argv)
 	if (argc == 1 || argc > 5)
 		usage_exit(NULL);
 	parse_fractal(fr, argv[1]);
-	if (fr->calc_fractal == &calc_newton)
-		fr->coloring = &color_newton;
-	else
-		fr->coloring = &color_pixel;
 	if (argc > 3 && fr->calc_fractal != &calc_julia)
 		usage_exit(NULL);
 	if (argc > 2)
 		parse_color(fr, argv[2]);
 	else
-		fr->color = &natural;
+		fr->coloring = &bernstein;
 	if (fr->calc_fractal == &calc_julia)
 		parse_julia(fr, argc, argv);
-	ft_printf("parse_fr, address of calc_fractal = %p\n", fr->calc_fractal);
 }
 

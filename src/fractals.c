@@ -6,11 +6,11 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 12:37:07 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/01 16:34:59 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/04 20:25:16 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol_def.h"
+#include "fractol.h"
 
 /*
 // convert the coordinate of each pixel 
@@ -38,8 +38,7 @@ int	calc_mandelbrot(t_fr *fr, double x, double y)
 	i = 0;
 	z_re = 0;
 	z_im = 0;
-
-	while (i < 600)//fr->zoom.depth_max)
+	while (i < fr->zoom.depth_max)
 	{
 		z_re2 = z_re * z_re;
 		z_im2 = z_im * z_im;
@@ -80,6 +79,45 @@ int	calc_julia(t_fr *fr, double x, double y)
 	return (i);
 }
 
+
+/*
+// manipulate iterations for newton for better coloring
+*/
+int	adjust_for_coloring(t_fr *fr, int i)
+{
+	double	j;
+	
+	shift_color(fr->zoom.depth_max, fr->color_shift, &i);
+	j = sqrt(i);
+	while ((i * j) > fr->zoom.depth_max)
+	{
+		i = (i - fr->zoom.depth_max_sqrt) / j;
+		j = sqrt(i);
+	}
+	return ((int) round(i * j));
+}
+
+/*
+// returns true if z is close enough to one of the three roots that solve x^3 - 1 = 0
+*/
+bool	approximates_root(t_cplx z)
+{
+	t_cplx	roots[3];
+	int		i;
+
+	roots[0] = create_complex(1, 0);
+	roots[1] = create_complex(-0.5, sqrt(3) / 2);
+	roots[2] = create_complex(-0.5, -1 * roots[1].im);
+	i = 0;
+	while (i < 3)
+	{
+		if (near_equal_cplx(z, roots[i], TOLERANCE))
+			return (true);
+		i++;
+	}
+	return (false);
+}
+
 /*
 // calculate iterations for newton fractal for fixed function f(x) = x^3 - 1
 */
@@ -89,27 +127,18 @@ int	calc_newton(t_fr *fr, double x, double y)
 	t_cplx	z;
 	t_cplx	function;
 	t_cplx	derivative;
-	t_cplx	roots[3];
 
 	conv_to_complex_plain_coord(fr, &x, &y);
-	make_roots(&roots[0], &roots[1], &roots[2]);
 	i = 0;
-	z.re = x;
-	z.im = y;
+	z = create_complex(x, y);
 	while (i < fr->zoom.depth_max)
 	{
-		if (pow(z.im - roots[0].im, 2) < TOLERANCE && pow(z.re - roots[0].re, 2) < TOLERANCE)
-			return (i);
-		if (pow(z.im - roots[1].im, 2) < TOLERANCE && pow(z.re - roots[1].re, 2) < TOLERANCE)
-			return (i);
-		if (pow(z.im - roots[2].im, 2) < TOLERANCE && pow(z.re - roots[2].re, 2) < TOLERANCE)
-			return (i);
+		if (approximates_root(z))
+			return (adjust_for_coloring(fr, i)); 
 		derivative = cplx_mul(cplx_mul(z, z), create_complex((double)3, (double)0));
-		function = cplx_mul(z, cplx_mul(z, z));
-		function.re--;
+		function = cplx_sub(cplx_mul(z, cplx_mul(z, z)), create_complex((double)1, (double)0));
 		function = cplx_div(function, derivative);
-		z.re -= function.re;
-		z.im -= function.im;
+		z = cplx_sub(z, function);
 		i++;
 	}
 	return (0);

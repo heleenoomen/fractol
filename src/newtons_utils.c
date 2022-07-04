@@ -1,4 +1,4 @@
-#include "fractol_def.h"
+#include "fractol.h"
 
 t_cplx	cplx_mul(t_cplx x, t_cplx y)
 {
@@ -22,16 +22,26 @@ t_cplx	cplx_div(t_cplx x, t_cplx y)
 }
 
 /*
+// subtract y from x
+*/
+t_cplx	cplx_sub(t_cplx x, t_cplx y)
+{
+	t_cplx r;
+
+	r.re = x.re - y.re;
+	r.im = x.im - y.im;
+	return (r);
+}
+
+/*
 // find nearest root for newton
 */
-void	make_roots(t_cplx *roots1, t_cplx *roots2, t_cplx *roots3)
+bool	near_equal_cplx(t_cplx x, t_cplx y, double tolerance)
 {
-	roots1->re = 1;
-	roots1->im = 0;
-	roots2->re = -.5;
-	roots2->im = sqrt(3) / 2;
-	roots3->re = -.5;
-	roots3->im = -1 * roots2->im;
+	if (pow(x.re - y.re, 2) < tolerance
+		&& pow(x.im - y.im, 2) < tolerance)
+		return (1);
+	return (0);
 }
 /*
 // multiply real number by complex number

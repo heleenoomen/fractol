@@ -6,14 +6,14 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 17:26:43 by hoomen            #+#    #+#             */
-/*   Updated: 2022/04/19 18:46:44 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/04 13:06:16 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ft_printf.h"
 
-static const char	*g_allsymbols = "cspdiouxX%%#-+ .*0123456789";
-static const char	*g_conspecs = "cspdiouxX%%";
+static const char	*g_allsymbols = "cspdifuxX%%#-+ .*0123456789";
+static const char	*g_conspecs = "cspdifuxX%%";
 static const char	*g_mods = "#-+ .*0123456789";
 
 void	ft_parse(t_io *io, t_mod *mods)

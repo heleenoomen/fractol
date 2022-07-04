@@ -1,5 +1,5 @@
-#ifndef FRACTOL_DEF_H
-# define FRACTOL_DEF_H
+#ifndef FRACTOL_H
+# define FRACTOL_H
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -28,10 +28,9 @@
 /*
 // color names
 */
-# define NA "natural"
-# define PI "pink"
-# define GR "green"
+# define BE "bernstein"
 # define RA "rainbow"
+# define PS "psychedelic"
 
 /*
 // codes for coloring algorithms
@@ -95,9 +94,9 @@ typedef struct s_fr
 {
 	int		(*calc_fractal)(struct s_fr *fr, double x, double y);
 	void	(*coloring)(struct s_fr *fr, double x, double y, int i);
-	void	(*color)(struct s_fr *fr, double x, double y, int i);
 	double	j_re;
 	double	j_im;
+	int		color_shift;
 	t_win	window;
 	t_zoom	zoom;
 }			t_fr;
@@ -129,6 +128,7 @@ void	init(t_fr *fr);
 /*
 // fractals.c
 */
+void	conv_to_complex_plain_coord(t_fr *fr, double *x, double *y);
 int		calc_mandelbrot(t_fr *fr, double x, double y);
 int		calc_julia(t_fr *fr, double x, double y);
 int		calc_newton(t_fr *fr, double x, double y);
@@ -138,25 +138,24 @@ int		calc_newton(t_fr *fr, double x, double y);
 */
 t_cplx	cplx_mul(t_cplx x, t_cplx y);
 t_cplx	cplx_div(t_cplx x, t_cplx y);
-void	make_roots(t_cplx *roots1, t_cplx *roots2, t_cplx *roots3);
+t_cplx	cplx_sub(t_cplx x, t_cplx y);
+bool	near_equal_cplx(t_cplx x, t_cplx y, double tolerance);
 t_cplx	create_complex(double re, double im);
 
 /*
 // color.c
 */
-void	natural(t_fr *fr, double c_re, double c_im, int i);
+void	my_mlx_pixel_put(t_fr *fr, int x, int y, int color);
+void	shift_color(int depth, int shift, int *i);
+void	bernstein(t_fr *fr, double c_re, double c_im, int i);
 void	rainbow(t_fr *fr, double c_re, double c_im, int i);
 void	psychedelic(t_fr *fr, double c_re, double c_im, int i);
-void	pink(t_fr *fr, double c_re, double c_im, int i);
-void	three_colors_only(t_fr *fr, double c_re, double c_im, int i);
-void	color_pixel(t_fr *fr, double c_re, double c_im, int i);
-void	color_newton(t_fr *fr, double c_re, double c_im, int i);
-void	my_mlx_pixel_put(t_fr *fr, int x, int y, int color);
 
 /*
 // hsv2rgb.c
 */
 int	hsv2rgb(double h, double s, double v);
+int	spectrum(double i_normalized);
 
 /*
 // events.c
@@ -166,9 +165,29 @@ int		mouse(int button, int x, int y, t_fr *fr);
 int		red_button(t_fr *fr);
 
 /*
+// event_handlers.c
+*/
+void	move_view(t_fr *fr, int keycode);
+void	change_julias_parms(t_fr *fr, int keycode);
+void	switch_to_julia(t_fr *fr, double x, double y);
+void	switch_fractal(t_fr *fr, int keycode);
+
+/*
+// event_handlers2.c
+*/
+
+void	print_fractal_info(t_fr *fr);
+void	print_current_range(t_fr *fr);
+void	print_coordinates(t_fr *fr, double x, double y);
+void	print_julias_parms(t_fr *fr);
+void	print_info(t_fr *fr, int keycode);
+
+/*
 // zoom.c
 */
 void	zoom(int x, int y, t_fr *fr, double zoom);
 void	reset_zoom(t_fr *fr);
+void	add_depth(t_fr *fr);
+void	remove_depth(t_fr *fr);
 
 #endif

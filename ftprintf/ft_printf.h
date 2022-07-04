@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 17:04:38 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/28 15:32:03 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/04 13:04:42 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ void	ft_printstr(t_io *io, t_mod *mods);
 void	ft_printint(t_io *io, t_mod *mods);
 void	ft_printnbr(t_io *io, t_mod *mods, unsigned long int nbr);
 void	ft_putnbrpf(t_io *io, t_mod *mods, unsigned long int nbr);
+void	ft_printfloat(t_io *io, t_mod *mods);
 
 #endif
