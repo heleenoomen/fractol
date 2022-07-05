@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 15:50:05 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/04 19:56:33 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/05 19:14:23 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,35 @@ void	rainbow(t_fr *fr, double c_re, double c_im, int i)
 
 void	psychedelic(t_fr *fr, double c_re, double c_im, int i)
 {
-	my_mlx_pixel_put(fr, c_re, c_im, hsv2rgb(360 * fr->color_shift / 9, 1, 1)
-		+ 1000 * i);
+	int	color;
+
+	shift_color(fr->zoom.depth_max, fr->color_shift, &i);
+	color = 16581375 * i / fr->zoom.depth_max;   // 0xFFFFFF * iterations / 600
+	if (color > 16581375)
+		color = (color * -1) + 16581375;
+	my_mlx_pixel_put(fr, c_re, c_im, color);
+}
+
+void	linear(t_fr *fr, double c_re, double c_im, int i)
+{
+	if (fr->color_shift == 0)
+		my_mlx_pixel_put(fr, c_re, c_im, RGB_RED + 100 * i);
+	else if (fr->color_shift == 1)
+		my_mlx_pixel_put(fr, c_re, c_im, RGB_ORANGE + 100 * i);
+	else if (fr->color_shift == 2)
+		my_mlx_pixel_put(fr, c_re, c_im, RGB_YELLOW + 100 * i);
+	else if (fr->color_shift == 3)
+		my_mlx_pixel_put(fr, c_re, c_im, RGB_LIME + 100 * i);
+	else if (fr->color_shift == 4)
+		my_mlx_pixel_put(fr, c_re, c_im, RGB_GREEN + 100 * i);
+	else if (fr->color_shift == 5)
+		my_mlx_pixel_put(fr, c_re, c_im, RGB_BLUE + 100 * i);
+	else if (fr->color_shift == 6)
+		my_mlx_pixel_put(fr, c_re, c_im, RGB_PURPLE + 100 * i);
+	else if (fr->color_shift == 7)
+		my_mlx_pixel_put(fr, c_re, c_im, RGB_SIENA + 100 * i);
+	else if (fr->color_shift == 8)
+		my_mlx_pixel_put(fr, c_re, c_im, RGB_MAGENTA + 100 * i);
+	else if (fr->color_shift == 9)
+		my_mlx_pixel_put(fr, c_re, c_im, RGB_LINEN + 100 * i);
 }

@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 19:33:54 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/04 18:45:41 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/05 15:57:37 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,6 @@
 # define SCROLL_DOWN 4
 # define RIGHT_CLICK 2
 # define LEFT_CLICK 1
+# define MOUSE_WHEEL 3
 
 #endif

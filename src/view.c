@@ -1,16 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zoom.c                                             :+:      :+:    :+:   */
+/*   view.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 16:32:54 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/04 20:39:06 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/05 11:26:22 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+void	move_view(t_fr *fr, int keycode)
+{
+	if (keycode == KC_ARROW_UP)
+		fr->zoom.im_max += (fr->zoom.scope / 10);
+	else if (keycode == KC_ARROW_DOWN)
+		fr->zoom.im_max -= (fr->zoom.scope / 10);
+	else if (keycode == KC_ARROW_LEFT)
+		fr->zoom.re_min -= (fr->zoom.scope / 10);
+	else
+		fr->zoom.re_min += (fr->zoom.scope / 10);
+	make_image(fr);
+}
 
 void	zoom(int x, int y, t_fr *fr, double zoom)
 {

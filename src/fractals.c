@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 12:37:07 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/04 20:25:16 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/05 11:28:56 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,13 +81,12 @@ int	calc_julia(t_fr *fr, double x, double y)
 
 
 /*
-// manipulate iterations for newton for better coloring
+// for Newton fractal: manipulate iteration number for better coloring
 */
 int	adjust_for_coloring(t_fr *fr, int i)
 {
 	double	j;
 	
-	shift_color(fr->zoom.depth_max, fr->color_shift, &i);
 	j = sqrt(i);
 	while ((i * j) > fr->zoom.depth_max)
 	{
@@ -98,7 +97,7 @@ int	adjust_for_coloring(t_fr *fr, int i)
 }
 
 /*
-// returns true if z is close enough to one of the three roots that solve x^3 - 1 = 0
+// for Newton fractal: returns true if z is close enough to one of the three solutions for x^3 - 1 = 0
 */
 bool	approximates_root(t_cplx z)
 {

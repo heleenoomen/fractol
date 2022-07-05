@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:58:03 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/04 20:29:21 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/05 15:57:52 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	mouse(int button, int x, int y, t_fr *fr)
 		zoom(x, y, fr, 1 / ZOOM);
 	else if (button == RIGHT_CLICK)
 		switch_to_julia(fr, (double) x, (double) y);
-	else if (button == LEFT_CLICK)
+	else if (button == MOUSE_WHEEL)
 		print_coordinates(fr, (double) x, (double) y);
 	return (0);
 }

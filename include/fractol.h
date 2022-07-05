@@ -11,6 +11,7 @@
 # include "ft_printf.h"
 # include "fr_userinfo.h"
 # include "keys.h"
+# include "colors.h"
 
 /*
 // fractal names
@@ -31,6 +32,7 @@
 # define BE "bernstein"
 # define RA "rainbow"
 # define PS "psychedelic"
+# define LI "linear"
 
 /*
 // codes for coloring algorithms
@@ -97,6 +99,7 @@ typedef struct s_fr
 	double	j_re;
 	double	j_im;
 	int		color_shift;
+	bool	set_is_black;
 	t_win	window;
 	t_zoom	zoom;
 }			t_fr;
@@ -150,6 +153,7 @@ void	shift_color(int depth, int shift, int *i);
 void	bernstein(t_fr *fr, double c_re, double c_im, int i);
 void	rainbow(t_fr *fr, double c_re, double c_im, int i);
 void	psychedelic(t_fr *fr, double c_re, double c_im, int i);
+void	linear(t_fr *fr, double c_re, double c_im, int i);
 
 /*
 // hsv2rgb.c
@@ -167,13 +171,12 @@ int		red_button(t_fr *fr);
 /*
 // event_handlers.c
 */
-void	move_view(t_fr *fr, int keycode);
 void	change_julias_parms(t_fr *fr, int keycode);
 void	switch_to_julia(t_fr *fr, double x, double y);
 void	switch_fractal(t_fr *fr, int keycode);
 
 /*
-// event_handlers2.c
+// print_info.c
 */
 
 void	print_fractal_info(t_fr *fr);
@@ -183,8 +186,9 @@ void	print_julias_parms(t_fr *fr);
 void	print_info(t_fr *fr, int keycode);
 
 /*
-// zoom.c
+// view.c
 */
+void	move_view(t_fr *fr, int keycode);
 void	zoom(int x, int y, t_fr *fr, double zoom);
 void	reset_zoom(t_fr *fr);
 void	add_depth(t_fr *fr);

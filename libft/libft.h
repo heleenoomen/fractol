@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 12:24:14 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/29 11:28:02 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/05 15:35:45 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,7 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 double		ft_atof(const char *s);
 bool		ft_isspace(int c);
 int			ft_strncmp_uplo(const char *s1, const char *s2, size_t n);
+int			ft_strisfloat(char *s);
+double		ft_pow(double base, int power);
 
 #endif

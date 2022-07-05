@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Mon Jul  4 20:37:49 2022
+# Make data base, printed on Tue Jul  5 20:55:15 2022
 
 # Variables
 
@@ -19,7 +19,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # makefile (from `Makefile', line 23)
 OBJ = $(addprefix obj/,$(notdir $(SRC:.c=.o)))
 # makefile (from `Makefile', line 21)
-SRC = main.c parse.c init.c fractals.c newtons_utils.c color.c hsv2rgb.c events.c zoom.c event_handlers.c event_handlers2.c
+SRC = main.c parse.c init.c fractals.c newtons_utils.c color.c hsv2rgb.c events.c view.c change_image.c print_info.c
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
@@ -41,15 +41,13 @@ MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000ccdm00333d/T/vscode-ipc-78dadccb-0636-48cc-b9a9-57c7b9eb6656.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000ccdm00333d/T/vscode-ipc-c20237f5-a54e-4a63-8477-02c0976b5bc4.sock
 # environment
 VSCODE_CWD = /
 # environment
-PATH = /Users/hoomen/goinfre/.brew/bin:/Users/hoomen/goinfre/.brew/bin:/Users/hoomen/.brew/bin:/Users/hoomen/goinfre/.brew/bin:/Users/hoomen/.brew/bin:/Users/hoomen/.brew/bin:/Users/hoomen/goinfre/.brew/bin:/Users/hoomen/goinfre/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Apple/usr/bin
+PATH = /Users/hoomen/goinfre/.brew/bin:/Users/hoomen/goinfre/.brew/bin:/Users/hoomen/.brew/bin:/Users/hoomen/goinfre/.brew/bin:/Users/hoomen/.brew/bin:/Users/hoomen/.brew/bin:/Users/hoomen/goinfre/.brew/bin:/Users/hoomen/goinfre/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # makefile (from `Makefile', line 13)
 VPATH = src
-# environment
-LaunchInstanceID = 37BC1716-C717-44D0-B177-A9AA48AC2473
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -57,7 +55,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.EY35gjlBOo/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.SMEAsyq6NZ/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -121,15 +119,13 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
+XPC_SERVICE_NAME = com.microsoft.VSCode.2168
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
 # environment
 __CF_USER_TEXT_ENCODING = 0x18C6D:0x0:0x0
-# environment
-COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
 # automatic
@@ -140,8 +136,6 @@ LC_ALL = C
 HEADER = include/fractol.h include/fr_userinfo.h include/keys.h
 # makefile (from `Makefile', line 22)
 LIBS = libft/libft.a ftprintf/libftprintf.a
-# environment
-SECURITYSESSIONID = 186a7
 # automatic
 ^F = $(notdir $^)
 # default
@@ -155,9 +149,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 4396
+VSCODE_PID = 46440
 # variable set hash-table stats:
-# Load=72/1024=7%, Rehash=0, Collisions=3/109=3%
+# Load=69/1024=7%, Rehash=0, Collisions=3/106=3%
 
 # Pattern-specific Variable Values
 
@@ -165,13 +159,13 @@ VSCODE_PID = 4396
 
 # Directories
 
-# include (device 16777225, inode 1519607): 5 files, no impossibilities so far.
-# . (device 16777225, inode 1303485): 16 files, no impossibilities.
-# src (device 16777225, inode 1304457): 13 files, no impossibilities so far.
+# include (device 16777225, inode 1519607): 6 files, no impossibilities so far.
+# . (device 16777225, inode 1303485): 18 files, no impossibilities.
+# src (device 16777225, inode 1304457): 9 files, no impossibilities so far.
 # ftprintf (device 16777225, inode 1519592): No files, no impossibilities so far.
 # libft (device 16777225, inode 1519611): No files, no impossibilities so far.
 
-# 34 files, no impossibilities in 5 directories.
+# 33 files, no impossibilities in 5 directories.
 
 # Implicit Rules
 
@@ -184,9 +178,9 @@ obj/%.o: %.c libft/libft.a ftprintf/libftprintf.a include/fractol.h include/fr_u
 
 # Files
 
-fractol: obj/main.o obj/parse.o obj/init.o obj/fractals.o obj/newtons_utils.o obj/color.o obj/hsv2rgb.o obj/events.o obj/zoom.o obj/event_handlers.o obj/event_handlers2.o | libft/libft.a ftprintf/libftprintf.a
+fractol: obj/main.o obj/parse.o obj/init.o obj/fractals.o obj/newtons_utils.o obj/color.o obj/hsv2rgb.o obj/events.o obj/view.o obj/change_image.o obj/print_info.o | libft/libft.a ftprintf/libftprintf.a
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-04 20:32:41
+#  Last modified 2022-07-05 20:54:24
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -194,12 +188,6 @@ fractol: obj/main.o obj/parse.o obj/init.o obj/fractals.o obj/newtons_utils.o ob
 #  commands to execute (from `Makefile', line 26):
 	$(CC) $(FLAGS) -o $@ $^ -Llibft -lft -Lftprintf -lftprintf -lm -Lmlx -lmlx -framework OpenGL -framework AppKit 
 	
-
-# Not a target:
-obj/event_handlers.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
 
 all: fractol
 #  Phony target (prerequisite of .PHONY).
@@ -211,28 +199,41 @@ all: fractol
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/5=0%
 
+# Not a target:
+obj/print_info.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 .PHONY: all clean fclean re
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-src/newtons_utils.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-04 20:22:11
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
 obj/main.o: src/main.c libft/libft.a ftprintf/libftprintf.a include/fractol.h include/fr_userinfo.h include/keys.h | obj
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `main'
-#  Last modified 2022-07-04 20:29:50
+#  Last modified 2022-07-05 20:54:23
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := obj/main.o
+# automatic
+# % := 
+# automatic
+# * := main
+# automatic
+# + := src/main.c libft/libft.a ftprintf/libftprintf.a include/fractol.h include/fr_userinfo.h include/keys.h
+# automatic
+# | := obj
+# automatic
+# < := src/main.c
+# automatic
+# ^ := src/main.c libft/libft.a ftprintf/libftprintf.a include/fractol.h include/fr_userinfo.h include/keys.h
+# automatic
+# ? := ftprintf/libftprintf.a
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+# Load=8/32=25%, Rehash=0, Collisions=1/15=7%
 #  commands to execute (from `Makefile', line 29):
 	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
 	
@@ -246,27 +247,43 @@ obj/main.o: src/main.c libft/libft.a ftprintf/libftprintf.a include/fractol.h in
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-04 20:37:49
+#  Last modified 2022-07-05 20:55:04
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-obj/color.o: src/color.c libft/libft.a ftprintf/libftprintf.a include/fractol.h include/fr_userinfo.h include/keys.h | obj
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `color'
-#  Last modified 2022-07-04 20:29:50
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 29):
-	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
+libs: fclean all
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+test:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 54):
+	-(cd ftprintf && make)
+	-(cp ftprintf/libftprintf.a .)
+	$(CC) test.c -L. -lftprintf
+	./a.out
 	
+
+# Not a target:
+obj/color.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/view.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 libft/libft.a:
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-04 19:02:09
+#  Last modified 2022-07-05 20:32:47
 #  File has been updated.
 #  Successfully updated.
 #  commands to execute (from `Makefile', line 35):
@@ -275,18 +292,12 @@ libft/libft.a:
 	-(cd libft && make clean)
 	
 
-obj/fractals.o: src/fractals.c libft/libft.a ftprintf/libftprintf.a include/fractol.h include/fr_userinfo.h include/keys.h | obj
-#  Implicit rule search has been done.
+# Not a target:
  
-#  Implicit/static pattern stem: `fractals'
-#  Last modified 2022-07-04 20:29:50
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 29):
-	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
-	
+obj/fractals.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
@@ -302,59 +313,25 @@ fclean: clean
 # Not a target:
 src/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-04 20:26:24
+#  Last modified 2022-07-05 18:07:40
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-# Not a target:
-obj/event_handlers2.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
 obj:
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-04 20:32:41
+#  Last modified 2022-07-05 20:54:24
 #  File has been updated.
 #  Successfully updated.
 #  commands to execute (from `Makefile', line 32):
 	mkdir obj
 	
 
-obj/zoom.o: src/zoom.c libft/libft.a ftprintf/libftprintf.a include/fractol.h include/fr_userinfo.h include/keys.h | obj
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `zoom'
-#  Last modified 2022-07-04 20:29:50
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := obj/zoom.o
-# automatic
-# % := 
-# automatic
-# * := zoom
-# automatic
-# + := src/zoom.c libft/libft.a ftprintf/libftprintf.a include/fractol.h include/fr_userinfo.h include/keys.h
-# automatic
-# | := obj
-# automatic
-# < := src/zoom.c
-# automatic
-# ^ := src/zoom.c libft/libft.a ftprintf/libftprintf.a include/fractol.h include/fr_userinfo.h include/keys.h
-# automatic
-# ? := src/zoom.c
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/15=7%
-#  commands to execute (from `Makefile', line 29):
-	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
-	
-
 # Not a target:
 include/keys.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-04 18:45:41
+#  Last modified 2022-07-05 15:57:37
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -367,42 +344,21 @@ include/keys.h:
 #  File has not been updated.
 
 # Not a target:
-src/color.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-04 19:56:33
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+obj/hsv2rgb.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-obj/hsv2rgb.o: src/hsv2rgb.c libft/libft.a ftprintf/libftprintf.a include/fractol.h include/fr_userinfo.h include/keys.h | obj
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `hsv2rgb'
-#  Last modified 2022-07-04 20:29:50
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 29):
-	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
-	
-
-obj/events.o: src/events.c libft/libft.a ftprintf/libftprintf.a include/fractol.h include/fr_userinfo.h include/keys.h | obj
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `events'
-#  Last modified 2022-07-04 20:29:50
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 29):
-	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
-	
+# Not a target:
+obj/events.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 include/fractol.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-04 20:29:49
+#  Last modified 2022-07-05 11:25:17
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -414,17 +370,11 @@ re: clean all
 #  File does not exist.
 #  File has not been updated.
 
-obj/parse.o: src/parse.c libft/libft.a ftprintf/libftprintf.a include/fractol.h include/fr_userinfo.h include/keys.h | obj
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `parse'
-#  Last modified 2022-07-04 20:29:50
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 29):
-	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
-	
+# Not a target:
+obj/parse.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 clean:
 #  Phony target (prerequisite of .PHONY).
@@ -435,84 +385,30 @@ clean:
 	rm -rf obj
 	
 
-obj/init.o: src/init.c libft/libft.a ftprintf/libftprintf.a include/fractol.h include/fr_userinfo.h include/keys.h | obj
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `init'
-#  Last modified 2022-07-04 20:32:41
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 29):
-	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
-	
-
 # Not a target:
-src/fractals.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-04 20:25:16
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-src/zoom.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-04 20:34:55
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-src/hsv2rgb.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-04 17:39:58
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+obj/init.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 include/fr_userinfo.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-04 18:45:01
+#  Last modified 2022-07-05 17:27:05
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-src/events.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-04 20:29:21
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-src/parse.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-04 13:11:09
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-src/init.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-04 20:32:07
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+obj/change_image.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 ftprintf/libftprintf.a:
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-04 19:02:10
+#  Last modified 2022-07-05 20:55:07
 #  File has been updated.
 #  Successfully updated.
 #  commands to execute (from `Makefile', line 35):
@@ -521,20 +417,14 @@ ftprintf/libftprintf.a:
 	-(cd libft && make clean)
 	
 
-obj/newtons_utils.o: src/newtons_utils.c libft/libft.a ftprintf/libftprintf.a include/fractol.h include/fr_userinfo.h include/keys.h | obj
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `newtons_utils'
-#  Last modified 2022-07-04 20:29:50
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 29):
-	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
-	
+# Not a target:
+obj/newtons_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # files hash-table stats:
-# Load=35/1024=3%, Rehash=0, Collisions=0/258=0%
+# Load=29/1024=3%, Rehash=0, Collisions=0/86=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -547,6 +437,6 @@ obj/newtons_utils.o: src/newtons_utils.c libft/libft.a ftprintf/libftprintf.a in
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon Jul  4 20:37:49 2022
+# Finished Make data base on Tue Jul  5 20:55:15 2022
 
  

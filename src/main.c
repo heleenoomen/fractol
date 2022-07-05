@@ -6,11 +6,12 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:53:02 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/04 20:55:08 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/05 18:07:40 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include <stdio.h>
 
 void	make_image(t_fr *fr)
 {

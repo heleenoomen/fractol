@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 10:21:52 by hoomen            #+#    #+#             */
-/*   Updated: 2022/06/28 12:25:56 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/05 21:51:24 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_countsubs(const char *s, char c, size_t *nsubs)
 {
-	char *trav;
-	
+	char	*trav;
+
 	*nsubs = 0;
 	if (s == NULL)
-		return;
+		return ;
 	trav = (char *)s;
 	while (*trav)
 	{
@@ -51,7 +51,7 @@ char	*ft_makesub(char *trav, char c, size_t *sublen)
 {
 	char	*endofsub;
 	char	*sub;
-	
+
 	endofsub = ft_strchr(trav, c);
 	if (endofsub == NULL)
 		*sublen = ft_strlen(trav);

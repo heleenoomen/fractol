@@ -1,29 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   event_handlers.c                                   :+:      :+:    :+:   */
+/*   change_image.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:52:49 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/04 20:56:54 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/05 11:32:36 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-void	move_view(t_fr *fr, int keycode)
-{
-	if (keycode == KC_ARROW_UP)
-		fr->zoom.im_max += (fr->zoom.scope / 10);
-	else if (keycode == KC_ARROW_DOWN)
-		fr->zoom.im_max -= (fr->zoom.scope / 10);
-	else if (keycode == KC_ARROW_LEFT)
-		fr->zoom.re_min -= (fr->zoom.scope / 10);
-	else
-		fr->zoom.re_min += (fr->zoom.scope / 10);
-	make_image(fr);
-}
 
 void	change_julias_parms(t_fr *fr, int keycode)
 {
@@ -53,7 +40,10 @@ void	switch_fractal(t_fr *fr, int keycode)
 	if (keycode == KC_M)
 		fr->calc_fractal = &calc_mandelbrot;
 	else if (keycode == KC_N)
+	{
+		reset_zoom(fr);
 		fr->calc_fractal = &calc_newton;
+	}
 	else if (keycode == KC_J)
 	{
 		fr->j_im = J_IM_DEFAULT;

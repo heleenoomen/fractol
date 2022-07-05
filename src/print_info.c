@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   event_handlers2.c                                  :+:      :+:    :+:   */
+/*   print_info.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:57:14 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/04 20:57:57 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/05 17:09:39 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ void	print_current_range(t_fr *fr)
 void	print_coordinates(t_fr *fr, double x, double y)
 {	
 	conv_to_complex_plain_coord(fr, &x, &y);
-	ft_printf("\tcoordinates are {%.12f, %.12f}\n", x, y);
+	ft_printf("\tcoordinates: {%f, %f}\n", x, y);
 }
 
 void	print_julias_parms(t_fr *fr)
 {
 	if (fr->calc_fractal == &calc_julia)
-		ft_printf("\t Julia's parameters: {%.12f, %.12f}\n", fr->j_re, fr->j_im);
+		ft_printf("\t Julia's parameters: {%f, %f}\n", fr->j_re, fr->j_im);
 }
 
 void	print_info(t_fr *fr, int keycode)
