@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:57:14 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/06 12:57:31 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/06 15:27:51 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	print_fractal_info(t_fr *fr)
 
 void	print_current_range(t_fr *fr)
 {
-	ft_printf("\n\treal axis\t{%.12f, %.12f}\n\timaginary axis \
-		{%.12f, %.12f}\n\n", fr->view.re_min, fr->view.re_min + fr->view.scope,
+	ft_printf("\n\treal axis\t{%f, %f}\n\timaginary axis \
+		{%f, %f}\n\n", fr->view.re_min, fr->view.re_min + fr->view.scope,
 		fr->view.im_max - fr->view.scope, fr->view.im_max);
 }
 
@@ -48,6 +48,10 @@ void	print_info(t_fr *fr, int keycode)
 		print_current_range(fr);
 	else if (keycode == KC_I)
 		print_julias_parms(fr);
+	else if (keycode == KC_V)
+		print_zoom(fr);
+	else if (keycode == KC_D)
+		ft_printf("\n\tIterations: %i\n", fr->view.depth_max);
 	else if (keycode == KC_F1)
 		ft_printf("%s\n", USER_INFO);
 	else

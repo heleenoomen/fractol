@@ -6,7 +6,7 @@
 #    By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/29 12:38:38 by hoomen            #+#    #+#              #
-#    Updated: 2022/07/06 13:01:12 by hoomen           ###   ########.fr        #
+#    Updated: 2022/07/06 15:09:43 by hoomen           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ FLAGS	= -Wall -Werror -Wextra
 
 NAME	= fractol
 HEADER	= include/fractol.h include/fr_userinfo.h include/keys.h
-SRC		= main.c parse.c parse_julia.c init.c fractals.c complex.c newtons_utils.c color.c hsv2rgb.c events.c view.c change_image.c print_info.c
+SRC		= main.c parse.c parse_julia.c init.c fractals.c complex.c newtons_utils.c color.c hsv2rgb.c events.c view.c change_image.c print_info.c print_info2.c
 LIBS	= libft/libft.a ftprintf/libftprintf.a
 OBJ		= $(addprefix obj/,$(notdir $(SRC:.c=.o)))
 

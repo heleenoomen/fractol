@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:40:46 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/06 13:03:34 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/06 15:18:49 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,7 +197,7 @@ int		mouse(int button, int x, int y, t_fr *fr);
 int		red_button(t_fr *fr);
 
 /*
-// event_handlers.c
+// change_image.c
 */
 void	change_julias_parms(t_fr *fr, int keycode);
 void	switch_to_julia(t_fr *fr, double x, double y);
@@ -211,6 +211,11 @@ void	print_current_range(t_fr *fr);
 void	print_coordinates(t_fr *fr, double x, double y);
 void	print_julias_parms(t_fr *fr);
 void	print_info(t_fr *fr, int keycode);
+
+/*
+// print_info2.c
+*/
+void	print_zoom(t_fr *fr);
 
 /*
 // view.c
