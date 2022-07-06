@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:42:27 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/06 12:57:01 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/06 19:56:09 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	adjust_for_coloring(t_fr *fr, int i)
 	double	j;
 
 	j = sqrt(i);
-	while ((i * j) > fr->view.depth_max)
+	while ((i * j) > fr->depth_max)
 	{
 		i = (i - fr->view.depth_max_sqrt) / j;
 		j = sqrt(i);

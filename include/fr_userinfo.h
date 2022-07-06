@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 17:19:24 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/06 17:23:23 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/06 19:32:36 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@
 # define INFO_MANDELBROT "\n\tMandelbrot set\n"
 
 # define USER_INFO "\n\t\t\tVIEW\n\
-\n\tZoom with mouse wheel\n\
+\tZoom with mouse wheel\n\
 \tUse arrow keys to move through picture\n\
-\tAdd iterations:\tpress x\n\
-\tDecrease iterations:\tpress z\n\
+\tAdd iterations:\t\t\tpress x\n\
+\tDecrease iterations:\t\tpress z\n\
 \tReset zoom and iterations:\tpress space\n\
 \n\t\t\tCOLOR\n\
 \tShift color: press numbers 0 - 9\n\

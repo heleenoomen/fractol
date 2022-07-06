@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:57:14 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/06 17:21:45 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/06 20:44:23 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	print_fractal_info(t_fr *fr)
 
 void	print_current_range(t_fr *fr)
 {
-	ft_printf("\n\treal axis\t{%.4f, %.4f}\n\timaginary axis \
-		{%.4f, %.4f}\n\n", fr->view.re_min, fr->view.re_min + fr->view.scope,
+	ft_printf("\n\treal axis\t{%.4f, %.4f}\n\timaginary axis\t\
+{%.4f, %.4f}\n\n", fr->view.re_min, fr->view.re_min + fr->view.scope,
 		fr->view.im_max - fr->view.scope, fr->view.im_max);
 }
 
@@ -51,9 +51,9 @@ void	print_info(t_fr *fr, int keycode)
 	else if (keycode == KC_V)
 		print_zoom(fr);
 	else if (keycode == KC_D)
-		ft_printf("\n\tIterations: %i\n", fr->view.depth_max);
+		ft_printf("\n\tIterations: %i\n", fr->depth_max);
 	else if (keycode == KC_F1)
 		ft_printf("%s\n", USER_INFO);
-	else
-		ft_printf("Press F1 for available actions\n");
+	else if (keycode != KC_FN)
+		ft_printf("\nPress F1 for available actions\n");
 }

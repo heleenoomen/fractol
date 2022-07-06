@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:52:49 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/05 11:32:36 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/06 20:37:24 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,5 @@ void	switch_fractal(t_fr *fr, int keycode)
 		fr->calc_fractal = &calc_julia;
 	}
 	make_image(fr);
+	print_fractal_info(fr);
 }

@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 15:04:47 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/06 17:16:41 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/06 17:51:23 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ void	print_zoom(t_fr *fr)
 	if (zoom > 10)
 		print_size_t((size_t) round(zoom));
 	else
-		ft_printf("\n\t%.4f", zoom);
+		ft_printf("%.4f", zoom);
 	ft_printf("\n");
 }

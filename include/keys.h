@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 19:33:54 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/06 12:41:24 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/06 17:55:34 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define KC_SEMI_COLON 41
 # define KC_QUOT_MARK 39
 # define KC_FW_SLASH 44
+# define KC_FN 264
 
 /*
 // arrow keys

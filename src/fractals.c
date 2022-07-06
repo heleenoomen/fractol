@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 12:37:07 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/06 12:54:28 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/06 20:24:24 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	calc_mandelbrot(t_fr *fr, double x, double y)
 	i = 0;
 	z_re = 0;
 	z_im = 0;
-	while (i < fr->view.depth_max)
+	while (i < fr->depth_max)
 	{
 		z_re2 = z_re * z_re;
 		z_im2 = z_im * z_im;
@@ -66,7 +66,7 @@ int	calc_julia(t_fr *fr, double x, double y)
 	i = 0;
 	z_re = x;
 	z_im = y;
-	while (i < fr->view.depth_max)
+	while (i < fr->depth_max)
 	{
 		z_re2 = z_re * z_re;
 		z_im2 = z_im * z_im;
@@ -92,7 +92,7 @@ int	calc_newton(t_fr *fr, double x, double y)
 	conv_to_complex_plain_coord(fr, &x, &y);
 	i = 0;
 	z = create_complex(x, y);
-	while (i < fr->view.depth_max)
+	while (i < fr->depth_max)
 	{
 		if (approximates_root(z))
 			return (adjust_for_coloring(fr, i));
