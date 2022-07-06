@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:57:14 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/05 17:09:39 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/06 12:57:31 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	print_fractal_info(t_fr *fr)
 void	print_current_range(t_fr *fr)
 {
 	ft_printf("\n\treal axis\t{%.12f, %.12f}\n\timaginary axis \
-		{%.12f, %.12f}\n\n", fr->zoom.re_min, fr->zoom.re_min + fr->zoom.scope,
-		fr->zoom.im_max - fr->zoom.scope, fr->zoom.im_max);
+		{%.12f, %.12f}\n\n", fr->view.re_min, fr->view.re_min + fr->view.scope,
+		fr->view.im_max - fr->view.scope, fr->view.im_max);
 }
 
 void	print_coordinates(t_fr *fr, double x, double y)

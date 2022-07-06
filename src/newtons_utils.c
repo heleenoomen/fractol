@@ -1,57 +1,51 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   newtons_utils.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/06 11:42:27 by hoomen            #+#    #+#             */
+/*   Updated: 2022/07/06 12:57:01 by hoomen           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
-t_cplx	cplx_mul(t_cplx x, t_cplx y)
+/*
+// for Newton fractal: manipulate iteration number for better coloring
+*/
+int	adjust_for_coloring(t_fr *fr, int i)
 {
-	t_cplx	m;
+	double	j;
 
-	m.re = x.re * y.re - x.im * y.im;
-	m.im = x.re * y.im + x.im * y.re;
-	return (m);
+	j = sqrt(i);
+	while ((i * j) > fr->view.depth_max)
+	{
+		i = (i - fr->view.depth_max_sqrt) / j;
+		j = sqrt(i);
+	}
+	return ((int) round(i * j));
 }
 
 /*
-// divide x by y, from: https://www.cuemath.com/numbers/division-of-complex-numbers/
+// for Newton fractal: returns true if z is close enough to one of the three 
+// solutions for x^3 - 1 = 0
 */
-t_cplx	cplx_div(t_cplx x, t_cplx y)
+bool	approximates_root(t_cplx z)
 {
-	t_cplx	m;
+	t_cplx	roots[3];
+	int		i;
 
-	m.re = ((x.re * y.re) + (x.im * y.im)) / ((y.re * y.re) + (y.im * y.im));
-	m.im = ((x.im * y.re) - (x.re * y.im)) / ((y.re * y.re) + (y.im * y.im));
-	return (m);
-}
-
-/*
-// subtract y from x
-*/
-t_cplx	cplx_sub(t_cplx x, t_cplx y)
-{
-	t_cplx r;
-
-	r.re = x.re - y.re;
-	r.im = x.im - y.im;
-	return (r);
-}
-
-/*
-// find nearest root for newton
-*/
-bool	near_equal_cplx(t_cplx x, t_cplx y, double tolerance)
-{
-	if (pow(x.re - y.re, 2) < tolerance
-		&& pow(x.im - y.im, 2) < tolerance)
-		return (1);
-	return (0);
-}
-/*
-// multiply real number by complex number
-*/
-t_cplx	create_complex(double re, double im)
-{
-	t_cplx cplx_nbr;
-
-	cplx_nbr.re = re;
-	cplx_nbr.im = im;
-
-	return(cplx_nbr);
+	roots[0] = create_complex(1, 0);
+	roots[1] = create_complex(-0.5, sqrt(3) / 2);
+	roots[2] = create_complex(-0.5, -1 * roots[1].im);
+	i = 0;
+	while (i < 3)
+	{
+		if (near_equal_cplx(z, roots[i], TOLERANCE))
+			return (true);
+		i++;
+	}
+	return (false);
 }

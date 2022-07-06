@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/06 12:07:44 by hoomen            #+#    #+#             */
+/*   Updated: 2022/07/06 12:38:20 by hoomen           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 void	usage_exit(char *message)
@@ -11,22 +23,14 @@ void	usage_exit(char *message)
 
 void	parse_fractal(t_fr *fr, char *s)
 {
-	if (s[1] == '\0')
-	{
-		if (s[0] == 'M' || s[0] == 'm')
-			fr->calc_fractal = &calc_mandelbrot;
-		else if (s[0] == 'J' || s[0] == 'j')
-			fr->calc_fractal = &calc_julia;
-		else if (s[0] == 'N' || s[0] == 'n')
-			fr->calc_fractal = &calc_newton;
-		else
-			usage_exit(USAGE_NAME);
-	}
-	else if (ft_strncmp_uplo(s, M, ft_strlen(M) + 1) == 0)
+	if (ft_strncmp_uplo(s, "M", 2) == 0
+		|| ft_strncmp_uplo(s, M, ft_strlen(M) + 1) == 0)
 		fr->calc_fractal = &calc_mandelbrot;
-	else if (ft_strncmp_uplo(s, J, ft_strlen(J) + 1) == 0)
+	else if (ft_strncmp_uplo(s, "J", 2) == 0
+		|| ft_strncmp_uplo(s, J, ft_strlen(J) + 1) == 0)
 		fr->calc_fractal = &calc_julia;
-	else if (ft_strncmp_uplo(s, N, ft_strlen(N) + 1) == 0)
+	else if (ft_strncmp_uplo(s, "N", 2) == 0
+		|| ft_strncmp_uplo(s, N, ft_strlen(N) + 1) == 0)
 		fr->calc_fractal = &calc_newton;
 	else
 		usage_exit(USAGE_NAME);
@@ -52,38 +56,6 @@ void	parse_color(t_fr *fr, char *s)
 		usage_exit(USAGE_COLOR);
 }
 
-void	get_julias_parms(t_fr *fr, char *p1, char *p2)
-{
-	if (!ft_strisfloat(p1) || !ft_strisfloat(p2))
-		usage_exit(USAGE_JULIA);
-	fr->j_re = ft_atof(p1);
-	fr->j_im = ft_atof(p2);
-}
-
-void	parse_julia(t_fr *fr, int argc, char **argv)
-{
-	if (fr->coloring == NULL && argc > 2)
-	{
-		if (argc == 3)
-			usage_exit(USAGE_JULIA);
-		if (argc == 5)
-			usage_exit(NULL);
-		get_julias_parms(fr, argv[2], argv[3]);
-		fr->coloring = &bernstein;
-	}
-	else if (argc > 3)
-	{
-		if (argc == 4)
-			usage_exit(USAGE_JULIA);
-		get_julias_parms(fr, argv[3], argv[4]);
-	}
-	else
-	{
-		fr->j_re = J_RE_DEFAULT;
-		fr->j_im = J_IM_DEFAULT;
-	}
-}
-
 void	parse_fr(t_fr *fr, int argc, char **argv)
 {
 	if (argc == 1 || argc > 5)
@@ -98,4 +70,3 @@ void	parse_fr(t_fr *fr, int argc, char **argv)
 	if (fr->calc_fractal == &calc_julia)
 		parse_julia(fr, argc, argv);
 }
-
