@@ -6,7 +6,7 @@
 #    By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/29 12:38:38 by hoomen            #+#    #+#              #
-#    Updated: 2022/07/06 21:04:30 by hoomen           ###   ########.fr        #
+#    Updated: 2022/07/06 21:11:19 by hoomen           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ $(LIBS) :
 
 all : $(NAME)
 
-bonus : $(BONOBJ) $(LIBS)
+bonus : $(BONOBJ) | $(LIBS)
 	$(CC) $(FLAGS) -o $(NAME) $^ -Llibft -lft -Lftprintf -lftprintf -lm -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 clean :
