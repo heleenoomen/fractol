@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 16:32:54 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/06 15:10:30 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/06 17:16:52 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	zoom(int x, int y, t_fr *fr, double zoom)
 	fr->view.scope = zoom * fr->view.scope;
 	fr->view.re_min = re_pos - (((double) x / WINSIZE) * fr->view.scope);
 	fr->view.im_max = im_pos + (((double) y / WINSIZE) * fr->view.scope);
-	//ft_printf("\tzoom = %f\n", 4 / fr->view.scope);
 	make_image(fr);
 }
 
@@ -63,7 +62,6 @@ void	add_depth(t_fr *fr)
 	else
 		fr->view.depth_max++;
 	make_image(fr);
-	//ft_printf("\tdepth: %i iterations\n", fr->view.depth_max);
 }
 
 void	remove_depth(t_fr *fr)
@@ -78,5 +76,4 @@ void	remove_depth(t_fr *fr)
 		return ;
 	}
 	make_image(fr);
-	//ft_printf("\tdepth: %i iterations\n", fr->view.depth_max);
 }

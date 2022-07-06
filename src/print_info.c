@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:57:14 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/06 15:27:51 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/06 17:21:45 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	print_fractal_info(t_fr *fr)
 {
 	if (fr->calc_fractal == &calc_julia)
-		ft_printf(INFO_JULIA);
+		ft_printf(INFO_JULIA, fr->j_re, fr->j_im);
 	else if (fr->calc_fractal == &calc_mandelbrot)
 		ft_printf("\n\tMandelbrot set\n");
 	else
@@ -25,15 +25,15 @@ void	print_fractal_info(t_fr *fr)
 
 void	print_current_range(t_fr *fr)
 {
-	ft_printf("\n\treal axis\t{%f, %f}\n\timaginary axis \
-		{%f, %f}\n\n", fr->view.re_min, fr->view.re_min + fr->view.scope,
+	ft_printf("\n\treal axis\t{%.4f, %.4f}\n\timaginary axis \
+		{%.4f, %.4f}\n\n", fr->view.re_min, fr->view.re_min + fr->view.scope,
 		fr->view.im_max - fr->view.scope, fr->view.im_max);
 }
 
 void	print_coordinates(t_fr *fr, double x, double y)
 {	
 	conv_to_complex_plain_coord(fr, &x, &y);
-	ft_printf("\tcoordinates: {%f, %f}\n", x, y);
+	ft_printf("\tcoordinates: {%,4f, %.4f}\n", x, y);
 }
 
 void	print_julias_parms(t_fr *fr)

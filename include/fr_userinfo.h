@@ -1,5 +1,17 @@
-#ifndef FR_USER_INFO_H
-# define FR_USER_INFO_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fr_userinfo.h                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/06 17:19:24 by hoomen            #+#    #+#             */
+/*   Updated: 2022/07/06 17:23:23 by hoomen           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef FR_USERINFO_H
+# define FR_USERINFO_H
 
 # define USAGE "\n\tUsage: ./fractol <fractal name> <optional parameters>\n\n\
 \tspecify at least one parameter:\n\
@@ -8,10 +20,13 @@
 \t  color: <bernstein/rainbow/psychedelic/be/ra/ps/b/r/p>\n\
 \t  for Julia only: <real axis coordinate> <imaginary axis coordinate>\n"
 
-# define USAGE_NAME "\n\tPlease provide valid fractal name: Mandelbrot/Julia/Newton/M/J/N\n"
+# define USAGE_NAME "\n\tPlease provide valid fractal name:\
+ Mandelbrot/Julia/Newton/M/J/N\n"
 
-# define USAGE_COLOR "\n\tPlease provide valid color parameter: bernstein/rainbow/psychedelic/be/ra/ps/b/r/p\n\
-\tIf no color parameter is provided, 'bernstein' coloring algorithm will be used\n"
+# define USAGE_COLOR "\n\tPlease provide valid color parameter:\
+ bernstein/rainbow/psychedelic/be/ra/ps/b/r/p\n\
+\tIf no color parameter is provided, 'bernstein' coloring algorithm\
+ will be used\n"
 
 # define USAGE_JULIA "\n\tJulia usage:\n\n\
 \t ./fractol Julia <color> <real_coordinate> <imaginary_coordinate>\n\
@@ -21,11 +36,13 @@
 \tCoordinates should be representable as a double, e.g.:\n\n\
 \t\t./fractol Julia 0.15 -1.17\n\
 \t\t./fractol Julia rainboow 0.1534 -2.17\n\n\
-\tIf no coordinates are provided, default coordinates {-0.79, 0.15} will be used\n"
+\tIf no coordinates are provided, default coordinates {-0.79, 0.15} will\
+ be used\n"
 
-# define INFO_NEWTON "\n\tNewton fractal for f(x) = x^3 - 1, coloring based on number of iterations\n"
+# define INFO_NEWTON "\n\tNewton fractal for f(x) = x^3 - 1,\
+ coloring based on number of iterations\n"
 
-# define INFO_JULIA "\n\tJulia set for parameters {%f, %f}\n", fr->j_re, fr->j_im
+# define INFO_JULIA "\n\tJulia set for parameters {%.4f, %.4f}\n"
 
 # define INFO_MANDELBROT "\n\tMandelbrot set\n"
 

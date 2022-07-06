@@ -6,7 +6,7 @@
 /*   By: hoomen <hoomen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:40:46 by hoomen            #+#    #+#             */
-/*   Updated: 2022/07/06 15:18:49 by hoomen           ###   ########.fr       */
+/*   Updated: 2022/07/06 17:23:58 by hoomen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,8 @@
 
 /*
 // zooming factor
-*/ 
+*/
 # define ZOOM 0.75
-
 
 /*
 // window and image parameters
@@ -187,7 +186,7 @@ void	psychedelic(t_fr *fr, double c_re, double c_im, int i);
 /*
 // hsv2rgb.c
 */
-int	hsv2rgb(double h, double s, double v);
+int		hsv2rgb(double h, double s, double v);
 
 /*
 // events.c

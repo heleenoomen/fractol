@@ -20,6 +20,7 @@ cc -Wall -Werror -Wextra -I libft -I ftprintf -I mlx -I include -c src/events.c 
 cc -Wall -Werror -Wextra -I libft -I ftprintf -I mlx -I include -c src/view.c -o obj/view.o
 cc -Wall -Werror -Wextra -I libft -I ftprintf -I mlx -I include -c src/change_image.c -o obj/change_image.o
 cc -Wall -Werror -Wextra -I libft -I ftprintf -I mlx -I include -c src/print_info.c -o obj/print_info.o
-cc -Wall -Werror -Wextra -o fractol obj/main.o obj/parse.o obj/parse_julia.o obj/init.o obj/fractals.o obj/complex.o obj/newtons_utils.o obj/color.o obj/hsv2rgb.o obj/events.o obj/view.o obj/change_image.o obj/print_info.o -Llibft -lft -Lftprintf -lftprintf -lm -Lmlx -lmlx -framework OpenGL -framework AppKit 
+cc -Wall -Werror -Wextra -I libft -I ftprintf -I mlx -I include -c src/print_info2.c -o obj/print_info2.o
+cc -Wall -Werror -Wextra -o fractol obj/main.o obj/parse.o obj/parse_julia.o obj/init.o obj/fractals.o obj/complex.o obj/newtons_utils.o obj/color.o obj/hsv2rgb.o obj/events.o obj/view.o obj/change_image.o obj/print_info.o obj/print_info2.o -Llibft -lft -Lftprintf -lftprintf -lm -Lmlx -lmlx -framework OpenGL -framework AppKit 
 make: Leaving directory `/Users/hoomen/projects/fractol'
  
